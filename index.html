@@ -102,6 +102,12 @@
   .stat b{font-family:"Syne",sans-serif;font-weight:800;font-size:1.9rem;color:var(--navy);display:block;}
   .stat span{font-size:.86rem;color:var(--gray);}
 
+  /* EXPLAINER VIDEO */
+  .explainer{background:var(--lgray);}
+  .explainer .vid{margin-top:30px;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(13,31,53,.18);border:1px solid var(--rule);background:var(--navy);max-width:960px;aspect-ratio:16/9;}
+  .explainer video{width:100%;height:100%;display:block;}
+  .explainer .vcap{margin-top:14px;font-size:.85rem;color:var(--gray);}
+
   /* FEATURES */
   .features{background:var(--navy);color:#fff;}
   .features .eyebrow{color:var(--teal);}
@@ -283,6 +289,21 @@
     </div>
   </div>
 </div>
+
+<!-- EXPLAINER VIDEO -->
+<section class="pad explainer" id="video">
+  <div class="wrap">
+    <div class="eyebrow">See it in 60 seconds</div>
+    <h2 class="sec">Real reports. Real schedule.<br>No mockups.</h2>
+    <div class="vid">
+      <video controls playsinline preload="metadata" poster="explainer-poster.jpg">
+        <source src="explainer.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="explainer.mp4">Download it here</a>.
+      </video>
+    </div>
+    <p class="vcap">Every report in this video is real InstantVerify output, with patient details redacted.</p>
+  </div>
+</section>
 
 <!-- PROBLEM -->
 <section class="pad problem">
