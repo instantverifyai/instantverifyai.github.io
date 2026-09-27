@@ -273,7 +273,7 @@
   <div class="nav-logo">Instant<span>Verify</span> AI</div>
   <div class="nav-right">
     <a href="https://instantverify-ai.ghost.io" class="nav-link" target="_blank" rel="noopener">Blog</a>
-    <a href="#start" class="nav-cta">Founding pricing</a>
+    <a href="#start" class="nav-cta" data-cta="nav_founding_pricing">Founding pricing</a>
   </div>
 </nav>
 
@@ -285,8 +285,8 @@
     <h1>Nothing gets missed.<br><span class="dim">Nothing gets guessed.</span></h1>
     <p class="hero-sub">InstantVerify reads every plan, every procedure, every morning — quietly, before you open. The full benefits breakdown, not just whether they're covered. On your own computer, never the cloud.</p>
     <div class="hero-actions">
-      <a href="#start" class="btn btn-primary">Claim your founding spot</a>
-      <a href="#report" class="btn btn-ghost">See a real report</a>
+      <a href="#start" class="btn btn-primary" data-cta="hero_claim_spot">Claim your founding spot</a>
+      <a href="#report" class="btn btn-ghost" data-cta="hero_see_report">See a real report</a>
     </div>
     <div class="hero-counter" id="heroCounter">Founders special — $250/mo locked for life while spots remain.</div>
   </div>
@@ -299,13 +299,13 @@
       <div class="fork-k">Solo &amp; small practices</div>
       <div class="fork-h">One office</div>
       <div class="fork-d">Verified benefits waiting every morning, on your own computer. Install once, ten minutes, no workflow changes.</div>
-      <a href="#start" class="fork-link">Start today →</a>
+      <a href="#start" class="fork-link" data-cta="fork_start_today">Start today →</a>
     </div>
     <div class="fork-card">
       <div class="fork-k">Multi-location &amp; DSOs</div>
       <div class="fork-h">Many offices</div>
       <div class="fork-d">One verifier that covers every chair — no turnover, no sick days. Cut the cost of verification across your whole group.</div>
-      <a href="#start" class="fork-link">Book a call →</a>
+      <a href="#start" class="fork-link" data-cta="fork_book_call">Book a call →</a>
     </div>
   </div>
 </div>
@@ -404,7 +404,7 @@
         </div>
       </div>
       <div class="psoon"><span>Coming soon:</span><span class="chip">Aetna</span><span class="chip">Cigna</span><span class="chip">Guardian</span><span class="chip">Principal</span><span class="chip">More state Delta Dental plans</span></div>
-      <p class="pask">Don't see your carrier? <a href="#signup">Tell us which portals your office uses</a> and we'll prioritize them.</p>
+      <p class="pask">Don't see your carrier? <a href="#signup" data-cta="portals_tell_us">Tell us which portals your office uses</a> and we'll prioritize them.</p>
     </div>
   </div>
 </section>
@@ -418,7 +418,7 @@
     <div class="report-shot"><picture><source srcset="report-sample.webp" type="image/webp"><img src="report-sample.png" alt="A sample InstantVerify verification report showing plan and policy details, remaining benefits, coverage by category with code-level rates, today's procedures, and commonly quoted codes — patient identifiers redacted." width="1224" height="1584" loading="lazy" decoding="async"></picture></div>
     <p class="report-cap">Sample report — patient identifiers redacted.</p>
     <div class="report-cta">
-      <a href="/sample-report/" class="report-btn">See a full day of real reports<span class="sub">Daily sheet · focused &amp; comprehensive · per-tooth timing</span></a>
+      <a href="/sample-report/" class="report-btn" data-cta="report_full_day">See a full day of real reports<span class="sub">Daily sheet · focused &amp; comprehensive · per-tooth timing</span></a>
     </div>
   </div>
 </section>
@@ -487,12 +487,12 @@
       <div class="get-card">
         <h3>Try it free for 2 weeks</h3>
         <p>A quick-start version, easy to install. Card required to start; <span class="price">no charge if you cancel</span> before the trial ends.</p>
-        <a href="#signup" class="btn btn-primary btn-block">Start free trial</a>
+        <a href="#signup" class="btn btn-primary btn-block" data-cta="pricing_start_trial">Start free trial</a>
       </div>
       <div class="get-card">
         <h3>Get the full product</h3>
         <p>The complete system, month-to-month. <span class="price">No contract</span>, cancel anytime — and your founding rate is locked in.</p>
-        <a href="#signup" class="btn btn-ghost btn-block" style="border-color:rgba(255,255,255,.3);color:#fff;">Get started</a>
+        <a href="#signup" class="btn btn-ghost btn-block" data-cta="pricing_get_started" style="border-color:rgba(255,255,255,.3);color:#fff;">Get started</a>
       </div>
     </div>
   </div>
@@ -622,6 +622,21 @@
   refreshCount();
   setInterval(refreshCount, 45000); // auto-updates the live count while the page is open
 
+  /* ---- Analytics: CTA clicks + explainer video engagement ---- */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-cta]');
+    if (a && typeof gtag === 'function') gtag('event', 'cta_click', { cta_id: a.dataset.cta, link_url: a.getAttribute('href') });
+  });
+  (function(){
+    const v = document.querySelector('.explainer video');
+    if (!v) return;
+    const send = (name, extra) => { if (typeof gtag === 'function') gtag('event', name, Object.assign({ video_title: 'InstantVerify AI in 60 seconds', video_provider: 'self-hosted' }, extra)); };
+    let started = false, half = false, done = false;
+    v.addEventListener('play', () => { if (!started) { started = true; send('video_start', { video_percent: 0 }); } });
+    v.addEventListener('timeupdate', () => { if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; send('video_progress', { video_percent: 50 }); } });
+    v.addEventListener('ended', () => { if (!done) { done = true; send('video_complete', { video_percent: 100 }); } });
+  })();
+
   /* ---- Lead capture (posts to Google Apps Script) ---- */
   const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
   async function submitForm() {
@@ -641,6 +656,8 @@
       await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data), redirect:'follow' });
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('success').classList.add('show');
+      // Analytics: conversion only, no personal details (names/emails/phone never sent)
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'founding_signup', practice_software: data.pms, operatories: data.ops });
       document.getElementById('signup').scrollIntoView({ behavior:'smooth' });
     } catch (err) {
       console.error('Lead submission error:', err);
