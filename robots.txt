@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
 
 Sitemap: https://instantverifyai.com/sitemap.xml

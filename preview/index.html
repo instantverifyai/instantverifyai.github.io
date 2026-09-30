@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Insurance Verification Software | InstantVerify AI</title>
+<meta name="description" content="InstantVerify AI reads every plan, every procedure, every morning — a full dental benefits breakdown, not just eligibility. Runs on your own computer, never the cloud. Works with Dentrix, Eaglesoft, and Open Dental.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0d1f35">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="InstantVerify AI">
+<meta property="og:title" content="InstantVerify AI — Nothing gets missed. Nothing gets guessed.">
+<meta property="og:description" content="InstantVerify AI reads every plan, every procedure, every morning — a full dental benefits breakdown, not just eligibility. Runs on your own computer, never the cloud. Works with Dentrix, Eaglesoft, and Open Dental.">
+<meta property="og:url" content="https://instantverifyai.com/">
+<meta property="og:image" content="https://instantverifyai.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="InstantVerify AI — Nothing gets missed. Nothing gets guessed.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="InstantVerify AI — Nothing gets missed. Nothing gets guessed.">
+<meta name="twitter:description" content="InstantVerify AI reads every plan, every procedure, every morning — a full dental benefits breakdown, not just eligibility. Runs on your own computer, never the cloud. Works with Dentrix, Eaglesoft, and Open Dental.">
+<meta name="twitter:image" content="https://instantverifyai.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "VideoObject", "name": "InstantVerify AI in 60 seconds", "description": "How InstantVerify AI reads your schedule overnight and has a full dental benefits breakdown waiting every morning, shown with real, redacted reports.", "thumbnailUrl": "https://instantverifyai.com/explainer-poster.jpg", "uploadDate": "2026-09-26", "duration": "PT1M", "contentUrl": "https://instantverifyai.com/explainer.mp4", "embedUrl": "https://instantverifyai.com/#video", "transcript": "Every morning, your front desk logs into portal after portal, and there's never time to read past the first screen. InstantVerify reads your schedule overnight and has every verification waiting when you walk in. And it goes deeper than anyone has time to. Before Darren sits down for his exam, you'll know his crown on #14 won't be covered. Same with fillings. Every patient gets the right report for what they're coming in for. A cleaning and exam gets the full picture, because that's where treatment gets discussed. A patient back for an approved crown gets a focused report: did anything change? Every number comes straight from the carrier. No guesses. No made-up numbers. It runs on your office computer, and patient data stays with your practice. InstantVerify AI. The verification tool that actually understands your schedule."}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"SoftwareApplication","name":"InstantVerify AI",
+  "applicationCategory":"BusinessApplication","operatingSystem":"Windows","url":"https://instantverifyai.com",
+  "description":"Dental insurance software that runs on a practice's own computer and delivers a full benefits breakdown — what every procedure will cost, read from all benefit tabs of the carrier portal — before the patient is seen, without sending patient data to the cloud.",
+  "offers":{"@type":"Offer","priceCurrency":"USD","price":"250","description":"Charter Practice Rate $250/mo, locked for life while spots remain. Regular price $500/mo. Month-to-month, no contract."}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What's the difference between eligibility verification and a full benefits breakdown?","acceptedAnswer":{"@type":"Answer","text":"Eligibility verification confirms whether a patient is covered. A full benefits breakdown shows what every procedure will actually cost — coverage percentages, deductibles, frequency limits, waiting periods, and remaining maximums. InstantVerify AI does both, reading every benefit tab of the carrier portal, not just the overview."}},
+    {"@type":"Question","name":"Does InstantVerify AI send patient data to the cloud or to AI services?","acceptedAnswer":{"@type":"Answer","text":"No. InstantVerify AI runs on the practice's own computer. Patient information is read, processed, and stored locally and is never sent to InstantVerify's servers or to any AI service. No AI reads or makes decisions about patient data — that work is done with fixed, deterministic rules."}},
+    {"@type":"Question","name":"Which practice management systems does InstantVerify AI work with?","acceptedAnswer":{"@type":"Answer","text":"InstantVerify AI works with Dentrix, Eaglesoft, and Open Dental."}}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --navy:#0d1f35; --navy2:#12294a; --blue:#1a5fad; --teal:#00b894; --teal-d:#0f9d6c;
+    --light:#e8f1fb; --white:#ffffff; --gray:#5b6675; --lgray:#f4f7fb; --rule:#dbe3ee;
+    --text:#1a2535; --gold:#a9803f; --red:#c8452f;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"DM Sans",system-ui,sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.6;}
+  a{color:var(--blue);}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 5%;}
+  .eyebrow{font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  h2.sec{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.02em;color:var(--navy);line-height:1.12;margin-bottom:18px;}
+  p.lead{font-size:1.06rem;font-weight:300;color:var(--gray);max-width:640px;line-height:1.7;}
+
+  /* NAV */
+  nav.topnav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:66px;padding:0 5%;background:rgba(13,31,53,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);}
+  .nav-logo{font-family:"Syne",sans-serif;font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-.02em;}
+  .nav-logo span{color:var(--teal);}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  .nav-link{color:rgba(255,255,255,.72);font-weight:500;font-size:.9rem;text-decoration:none;}
+  .nav-link:hover{color:#fff;}
+  .nav-cta{background:var(--teal);color:var(--navy);font-weight:600;font-size:.85rem;padding:9px 18px;border-radius:7px;text-decoration:none;}
+
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:130px 0 90px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 40%,rgba(26,95,173,.20),transparent 70%),radial-gradient(ellipse 40% 40% at 15% 90%,rgba(0,184,148,.10),transparent 60%);}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:58px 58px;}
+  .hero .wrap{position:relative;z-index:2;}
+  .hero .eyebrow{color:var(--teal);}
+  h1{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.02;letter-spacing:-.03em;margin-bottom:22px;}
+  h1 .dim{color:rgba(255,255,255,.42);}
+  .hero-sub{font-size:1.18rem;font-weight:300;color:rgba(255,255,255,.75);max-width:600px;line-height:1.6;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn{font-family:"DM Sans",sans-serif;font-weight:600;font-size:1rem;padding:15px 30px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:transform .15s,box-shadow .15s,opacity .15s;}
+  .btn-primary{background:var(--teal);color:var(--navy);box-shadow:0 4px 22px rgba(0,184,148,.28);}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.25);}
+  .btn-ghost:hover{color:#fff;border-color:#fff;}
+  .hero-counter{margin-top:26px;font-size:.92rem;color:rgba(255,255,255,.7);}
+  .hero-counter b{color:var(--teal);font-weight:700;}
+
+  /* FORK */
+  .fork{background:var(--lgray);padding:0;}
+  .fork-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;}
+  @media(max-width:720px){.fork-inner{grid-template-columns:1fr;}}
+  .fork-card{padding:40px 5%;border-right:1px solid var(--rule);}
+  .fork-card:last-child{border-right:none;background:var(--navy);color:#fff;}
+  .fork-k{font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+  .fork-card:last-child .fork-k{color:var(--teal);}
+  .fork-h{font-family:"Syne",sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:8px;}
+  .fork-card:last-child .fork-h{color:#fff;}
+  .fork-d{font-size:.92rem;color:var(--gray);margin-bottom:16px;}
+  .fork-card:last-child .fork-d{color:rgba(255,255,255,.7);}
+  .fork-link{font-weight:600;text-decoration:none;color:var(--blue);}
+  .fork-card:last-child .fork-link{color:var(--teal);}
+
+  /* SECTIONS */
+  section.pad{padding:88px 0;}
+  .problem{background:var(--white);}
+  .stat-row{display:flex;gap:36px;flex-wrap:wrap;margin-top:34px;}
+  .stat b{font-family:"Syne",sans-serif;font-weight:800;font-size:1.9rem;color:var(--navy);display:block;}
+  .stat span{font-size:.86rem;color:var(--gray);}
+
+  /* EXPLAINER VIDEO */
+  .explainer{background:var(--lgray);}
+  .explainer .vid{margin-top:30px;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(13,31,53,.18);border:1px solid var(--rule);background:var(--navy);max-width:960px;aspect-ratio:16/9;}
+  .explainer video{width:100%;height:100%;display:block;}
+  .explainer .vcap{margin-top:14px;font-size:.85rem;color:var(--gray);}
+
+  /* FEATURES */
+  .features{background:var(--navy);color:#fff;}
+  .features .eyebrow{color:var(--teal);}
+  .features h2.sec{color:#fff;}
+  .features p.lead{color:rgba(255,255,255,.6);}
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:44px;}
+  .fcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:26px;}
+  .fcard .ico{font-size:1.4rem;margin-bottom:12px;}
+  .fcard h3{font-family:"Syne",sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:8px;}
+  .fcard p{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.6;}
+  .fcard .tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,148,.12);padding:3px 9px;border-radius:20px;margin-top:12px;}
+
+  /* PORTALS */
+  .portals{margin-top:56px;padding-top:44px;border-top:1px solid rgba(255,255,255,.09);}
+  .portals h3.ph{font-family:"Syne",sans-serif;font-weight:700;font-size:1.35rem;color:#fff;margin-bottom:8px;}
+  .portals p.pl{font-size:.95rem;color:rgba(255,255,255,.6);max-width:640px;line-height:1.6;}
+  .pgrid{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:26px;max-width:860px;}
+  .pgrid .pcard:first-child{grid-row:1 / span 2;}
+  @media(max-width:720px){.pgrid{grid-template-columns:1fr;}.pgrid .pcard:first-child{grid-row:auto;}}
+  .pcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:20px 22px;}
+  .pcard .pk{font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard .pk::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none;}
+  .pcard ul{list-style:none;margin:0;padding:0;}
+  .pcard li{font-size:.88rem;color:rgba(255,255,255,.7);padding:5px 0;border-top:1px solid rgba(255,255,255,.06);}
+  .pcard li:first-child{border-top:0;}
+  .psoon{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px;font-size:.88rem;color:rgba(255,255,255,.55);}
+  .psoon .chip{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.8);border:1px dashed rgba(255,255,255,.25);padding:4px 11px;border-radius:20px;}
+  .pask{margin-top:18px;font-size:.9rem;color:rgba(255,255,255,.6);}
+  .pask a{color:var(--teal);font-weight:600;text-decoration:none;}
+  .pask a:hover{text-decoration:underline;}
+
+  /* REPORT */
+  .report{background:var(--lgray);}
+  .report-shot{margin-top:36px;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(13,31,53,.18);border:1px solid var(--rule);max-width:820px;}
+  .report-shot img{width:100%;height:auto;display:block;}
+  .report-cap{margin-top:16px;font-size:.85rem;color:var(--gray);}
+
+  /* SECURITY */
+  .sec-trust{background:var(--white);}
+  .trust-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:start;margin-top:12px;}
+  @media(max-width:760px){.trust-grid{grid-template-columns:1fr;gap:28px;}}
+  .trust-points{list-style:none;}
+  .trust-points li{position:relative;padding-left:26px;margin-bottom:16px;font-size:.96rem;color:var(--text);}
+  .trust-points li::before{content:'🔒';position:absolute;left:0;top:1px;font-size:.9rem;}
+  .callout{background:var(--lgray);border-left:3px solid var(--teal);border-radius:8px;padding:20px 22px;}
+  .callout h4{font-family:"Syne",sans-serif;font-weight:700;font-size:.95rem;color:var(--navy);margin-bottom:8px;}
+  .callout p{font-size:.9rem;color:var(--gray);line-height:1.65;}
+
+  /* PMS */
+  .pms{background:var(--navy);color:#fff;text-align:center;padding:60px 0;}
+  .pms .eyebrow{color:var(--teal);}
+  .pms h2{font-family:"Syne",sans-serif;font-weight:700;font-size:1.5rem;color:#fff;margin-bottom:6px;}
+  .pms .names{font-family:"Syne",sans-serif;font-weight:700;font-size:1.15rem;color:rgba(255,255,255,.85);margin-top:14px;letter-spacing:.02em;}
+  .pms .fine{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:14px;}
+
+  /* FOUNDER */
+  .founder{background:var(--white);}
+  .founder-card{background:var(--lgray);border:1px solid var(--rule);border-radius:14px;padding:36px 40px;margin-top:22px;max-width:820px;}
+  .founder-card p{font-size:1.08rem;color:var(--text);line-height:1.7;font-weight:300;}
+  .founder-card .sig{font-family:"Syne",sans-serif;font-weight:700;color:var(--navy);margin-top:18px;font-size:.95rem;}
+  .draft-note{font-size:.72rem;color:var(--gold);margin-top:8px;}
+
+  /* PRICING */
+  .pricing{background:var(--navy);color:#fff;}
+  .pricing .eyebrow{color:var(--teal);}
+  .pricing h2.sec{color:#fff;}
+  .counter-box{background:rgba(255,255,255,.05);border:1px solid rgba(0,184,148,.35);border-radius:14px;padding:30px 34px;margin-top:32px;max-width:640px;}
+  .price-today{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
+  .pt-num{font-family:"Syne",sans-serif;font-weight:800;font-size:3rem;color:var(--teal);line-height:1;}
+  .pt-per{font-size:1.1rem;color:rgba(255,255,255,.7);font-weight:600;margin-right:14px;}
+  .pt-tag{font-family:"Syne",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);align-self:center;}
+  .price-full{font-size:.95rem;color:rgba(255,255,255,.6);margin-top:12px;}
+  .price-full s{color:rgba(255,255,255,.85);}
+  .counter-line{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:1.05rem;color:#fff;}
+  .counter-line b{font-family:"Syne",sans-serif;font-weight:800;color:var(--teal);font-size:1.3rem;}
+  .c-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,184,148,.5);}70%{box-shadow:0 0 0 9px rgba(0,184,148,0);}100%{box-shadow:0 0 0 0 rgba(0,184,148,0);}}
+  .c-live{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-left:4px;}
+  .lock-note{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:18px;}
+  .lock-note b{color:#fff;}
+  .get-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;max-width:820px;}
+  @media(max-width:640px){.get-grid{grid-template-columns:1fr;}}
+  .get-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px;}
+  .get-card h3{font-family:"Syne",sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:8px;}
+  .get-card p{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:16px;}
+  .get-card .price{color:var(--teal);font-weight:700;}
+  .btn-block{display:block;text-align:center;width:100%;}
+
+  /* FORM */
+  .signup{background:var(--lgray);}
+  .form-card{background:var(--navy);border-radius:16px;padding:38px;max-width:620px;margin:28px auto 0;}
+  .form-title{font-family:"Syne",sans-serif;font-weight:700;font-size:1.4rem;color:#fff;margin-bottom:4px;}
+  .form-sub{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;}
+  .fg{margin-bottom:14px;}
+  .fg label{display:block;font-size:.74rem;font-weight:500;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+  .fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:12px 15px;color:#fff;font-family:"DM Sans",sans-serif;font-size:.93rem;outline:none;-webkit-appearance:none;resize:vertical;}
+  .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25);}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal);}
+  .fg select option{background:var(--navy);}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media(max-width:560px){.frow{grid-template-columns:1fr;}}
+  .form-submit{width:100%;background:var(--teal);color:var(--navy);font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;padding:15px;border:none;border-radius:8px;cursor:pointer;margin-top:8px;}
+  .form-submit:disabled{opacity:.6;cursor:not-allowed;}
+  .form-note{font-size:.74rem;color:rgba(255,255,255,.3);text-align:center;margin-top:12px;line-height:1.5;}
+  .success-msg{display:none;text-align:center;padding:16px 0;}
+  .success-msg.show{display:block;}
+  .success-msg .ico{font-size:2.4rem;margin-bottom:10px;}
+  .success-msg h3{font-family:"Syne",sans-serif;color:var(--teal);font-size:1.2rem;margin-bottom:8px;}
+  .success-msg p{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.6;}
+
+  /* FOOTER */
+  footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:40px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .footer-logo{font-family:"Syne",sans-serif;font-weight:800;font-size:1.1rem;color:#fff;}
+  .footer-logo span{color:var(--teal);}
+  .footer-nav{display:flex;gap:22px;flex-wrap:wrap;}
+  .footer-nav a{color:rgba(255,255,255,.72);font-size:.85rem;text-decoration:none;}
+  .footer-nav a:hover{color:var(--teal);}
+  .footer-copy{font-size:.78rem;color:rgba(255,255,255,.3);width:100%;}
+  .report-cta{text-align:center;margin-top:26px;}
+  .report-btn{display:inline-block;background:var(--teal,#00b894);color:#0d1f35;font-weight:600;font-size:1.05rem;line-height:1.3;padding:17px 38px;border-radius:10px;text-decoration:none;box-shadow:0 8px 22px rgba(0,184,148,.3);transition:transform .15s ease,box-shadow .15s ease;}
+  .report-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,184,148,.36);}
+  .report-btn .sub{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.72;margin-top:7px;}
+  footer .footer-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 24px;
+    margin:14px 0 16px;
+  }
+  footer .footer-nav a{
+    color:#eaf1f8;
+    text-decoration:none;
+    font-weight:500;
+    font-size:.95rem;
+  }
+  footer .footer-nav a:hover{
+    color:#00b894;
+  }
+
+  /* ROUND 1 (Brian): bigger type, less side space */
+  html{font-size:106.25%;}
+  .wrap{max-width:1240px;padding:0 4%;}
+  .fork-inner{max-width:1240px;}
+  .eyebrow{font-size:.8rem;}
+  p.lead{font-size:1.2rem;max-width:760px;}
+  .hero-sub{font-size:1.3rem;max-width:680px;}
+  h1{font-size:clamp(2.6rem,6vw,4.2rem);}
+  .fork-d,.fcard p,.pcard li,.report-cap,.vcap{font-size:1.02rem;}
+  .fcard h3{font-size:1.18rem;}
+  .fork-h{font-size:1.45rem;}
+  .nav-link{font-size:.98rem;}
+  .nav-cta{font-size:.95rem;padding:10px 20px;}
+  .pcard .pnote{color:rgba(255,255,255,.55);font-style:italic;}
+  .founder{padding:70px 0!important;}
+  .founder-card{max-width:900px;margin:0 auto;padding:40px 48px;}
+  .founder-card p{font-size:1.25rem;margin-bottom:14px;}
+  .founder-card p.punch{font-family:"Syne",sans-serif;font-weight:700;color:var(--navy);font-size:1.35rem;}
+  .founder-card .sig{font-size:1.02rem;}
+  .founder-card .sig2{font-weight:400;color:var(--gray);font-family:"DM Sans",sans-serif;}
+  @media(max-width:860px){.nav-link{display:none;}}
+  .pricing p.lead{color:rgba(255,255,255,.75);}
+  .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
+</style>
+</head>
+<body>
+<div class="preview-bar">PREVIEW — not the live site. Signup form is disabled here.</div>
+
+<nav class="topnav">
+  <div class="nav-logo">Instant<span>Verify</span> AI</div>
+  <div class="nav-right">
+    <a href="/patient-data/" class="nav-link">Why us</a>
+    <a href="#start" class="nav-link">Pricing</a>
+    <a href="#about" class="nav-link">About us</a>
+    <a href="https://instantverify-ai.ghost.io" class="nav-link" target="_blank" rel="noopener">Blog</a>
+    <a href="#signup" class="nav-cta" data-cta="nav_charter_rate">Claim the Charter Rate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="eyebrow">Eligibility verification &amp; full benefits breakdown</div>
+    <h1>Nothing gets missed.<br><span class="dim">Nothing gets guessed.</span></h1>
+    <p class="hero-sub">InstantVerify reads every plan, every procedure, every morning — quietly, before you open. The full benefits breakdown, not just whether they're covered. On your own computer, never the cloud.</p>
+    <div class="hero-actions">
+      <a href="#start" class="btn btn-primary" data-cta="hero_claim_spot">Claim your Charter Practice Rate</a>
+      <a href="#report" class="btn btn-ghost" data-cta="hero_see_report">See a real report</a>
+    </div>
+    <div class="hero-counter" id="heroCounter">Charter Practice Rate — $250/mo locked for life while spots remain.</div>
+  </div>
+</header>
+
+<!-- FOUNDER -->
+<section class="pad founder" id="about">
+  <div class="wrap">
+    <div class="founder-card">
+      <p>I spent fifteen years inside dental offices, watching front desks melt down on busy Tuesdays.</p>
+      <p>InstantVerify wasn't dreamed up by a programmer on the outside. It's built by someone who lived the problem.</p>
+      <p>Payment plan already in place? Skip the re-run. Patient in for an exam? Go deep before the treatment plan.</p>
+      <p class="punch">It works the way a great office already thinks.</p>
+      <div class="sig">— Darren Kaberna, Founder &amp; CEO<br><span class="sig2">with Dr. Brian Johnston, Co-Founder: a decade+ living in dental tech, hearing the same broken verification story everywhere.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORK -->
+<div class="fork">
+  <div class="fork-inner">
+    <div class="fork-card">
+      <div class="fork-k">Solo practices</div>
+      <div class="fork-h">One office</div>
+      <div class="fork-d">Verified benefits waiting every morning, on your own computer. Install once, ten minutes, no workflow changes.</div>
+      <a href="#start" class="fork-link" data-cta="fork_start_today">Start today →</a>
+    </div>
+    <div class="fork-card">
+      <div class="fork-k">Multi-location &amp; DSOs</div>
+      <div class="fork-h">Many offices</div>
+      <div class="fork-d">One verifier that covers every chair — no turnover, no sick days. Cut the cost of verification across your whole group.</div>
+      <a href="#start" class="fork-link" data-cta="fork_book_call">Book a call →</a>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLAINER VIDEO -->
+<section class="pad explainer" id="video">
+  <div class="wrap">
+    <div class="eyebrow">See it in 60 seconds</div>
+    <h2 class="sec">Real reports. Real schedule.<br>No mockups.</h2>
+    <div class="vid">
+      <video controls playsinline preload="metadata" poster="/explainer-poster.jpg">
+        <source src="/explainer.mp4" type="video/mp4">
+        <track kind="captions" src="/explainer.en.vtt" srclang="en" label="English">
+        Your browser can't play this video. <a href="/explainer.mp4">Download it here</a>.
+      </video>
+    </div>
+    <p class="vcap">Every report in this video is real InstantVerify output, with patient details redacted.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="pad problem">
+  <div class="wrap">
+    <div class="eyebrow">The real problem</div>
+    <h2 class="sec">You're the expert your patients trust —<br>and the one thing there's never time for.</h2>
+    <p class="lead">Insurance verification is the time-suck every practice hates and is still expected to be the expert on. And sometimes the details just aren't there when a patient asks — not because your team doesn't know their job, but because the phone rang, someone walked in, and the lookup got cut short. Good people, pulled ten directions at once. InstantVerify does the full lookup for every patient, every morning, so the answer is already sitting there — complete — before anyone has to multitask their way through it.</p>
+    <div class="stat-row">
+      <div class="stat"><b>Hated</b><span>the task every front desk dreads</span></div>
+      <div class="stat"><b>Expected</b><span>yet you're the expert patients trust</span></div>
+      <div class="stat"><b>Already done</b><span>complete before you open, every patient</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="pad features">
+  <div class="wrap">
+    <h2 class="sec">Most tools confirm coverage.<br>InstantVerify reads everything.</h2>
+    <p class="lead">The cheap tools read one screen. The thorough option costs $3,000+ a month in staff or an outside service. InstantVerify delivers that depth automatically — for the price of software.</p>
+    <div class="fgrid">
+      <div class="fcard">
+        <div class="ico">📑</div>
+        <h3>All six benefit tabs</h3>
+        <p>Most tools read only the Overview tab. InstantVerify reads all six — Overview, Deductibles, Coverage, Frequency, Treatment History, and Waiting Periods — where the frequency limits, tooth rules, and missing-tooth clauses actually live.</p>
+        <span class="tag">Portal-complete</span>
+      </div>
+      <div class="fcard">
+        <div class="ico">🎯</div>
+        <h3>The right depth for each patient</h3>
+        <p>A patient who already has a financial arrangement doesn't need the full breakdown run again — a focused check confirms their benefits and deductible haven't changed. A patient here for an exam is about to get a treatment plan, so InstantVerify pulls every detail you need to write it accurately.</p>
+      </div>
+      <div class="fcard">
+        <div class="ico">💵</div>
+        <h3>Code-level rates you can quote</h3>
+        <p>Category percentages are only reference ranges. InstantVerify pulls the code-level rate you actually quote — and flags out-of-network before you give a patient a number.</p>
+      </div>
+      <div class="fcard">
+        <div class="ico">🔎</div>
+        <h3>The codes you run most</h3>
+        <p>Tell us the procedures you care about — night guards, 3D imaging, whatever your office does often — and InstantVerify looks them up on every patient, every time.</p>
+      </div>
+      <div class="fcard">
+        <div class="ico">🦷</div>
+        <h3>Frequency &amp; tooth-level history</h3>
+        <p>When is this patient next eligible for a crown on tooth #14? InstantVerify reads it from the carrier's treatment history — even when the last crown was done at another office, because the portal holds the claims your PMS never saw.</p>
+      </div>
+      <div class="fcard">
+        <div class="ico">🧭</div>
+        <h3>It teaches itself new portals</h3>
+        <p>Carriers change their portals constantly. InstantVerify learns them and keeps working, so you're not stuck when a login page changes. It learns <em>portals</em> — never patients.</p>
+      </div>
+    </div>
+    <div class="portals" id="portals">
+      <h3 class="ph">Carrier portals we read today</h3>
+      <p class="pl">InstantVerify logs into the same provider portals your team uses and reads every benefit tab. These are live for offices now, and the list keeps growing.</p>
+      <div class="pgrid">
+        <div class="pcard">
+          <div class="pk">Delta Dental</div>
+          <ul>
+            <li>Delta Dental, including FEP plans</li>
+            <li class="pnote">All states — new state plans added during your onboarding.</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pk">MetLife</div>
+          <ul><li>MetLife Dental provider portal (MetDental)</li></ul>
+        </div>
+        <div class="pcard">
+          <div class="pk">United Concordia</div>
+          <ul><li>United Concordia provider portal</li></ul>
+        </div>
+      </div>
+      <div class="psoon"><span>Coming soon:</span><span class="chip">Aetna</span><span class="chip">Cigna</span><span class="chip">Guardian</span><span class="chip">Principal</span><span class="chip">More state Delta Dental plans</span></div>
+      <p class="pask">Don't see your carrier? <a href="#signup" data-cta="portals_tell_us">Tell us which portals your office uses</a> and we'll prioritize them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="pad report" id="report">
+  <div class="wrap">
+    <h2 class="sec">Not a mockup. An actual report.</h2>
+    <p class="lead">This is a real InstantVerify report, with the patient's identifying details redacted. Every number is read straight from the carrier portal — plan, network status, remaining benefits, code-level rates, and frequency limits, all on one clean page your team reads in seconds.</p>
+    <div class="report-shot"><picture><source srcset="/report-sample.webp" type="image/webp"><img src="/report-sample.png" alt="A sample InstantVerify verification report showing plan and policy details, remaining benefits, coverage by category with code-level rates, today's procedures, and commonly quoted codes — patient identifiers redacted." width="1224" height="1584" loading="lazy" decoding="async"></picture></div>
+    <p class="report-cap">Sample report — patient identifiers redacted.</p>
+    <div class="report-cta">
+      <a href="/sample-report/" class="report-btn" data-cta="report_full_day">See a full day of real reports<span class="sub">Daily sheet · focused &amp; comprehensive · per-tooth timing</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY / TRUST -->
+<section class="pad sec-trust">
+  <div class="wrap">
+    <div class="eyebrow">Runs in your office, not the cloud</div>
+    <h2 class="sec">Zero-cloud HIPAA architecture.</h2>
+    <div class="trust-grid">
+      <ul class="trust-points">
+        <li>Installs on your practice's own computer. Patient data is read, processed, and stored <b>locally</b> — it never leaves your office network.</li>
+        <li>No cloud ingestion of patient data, and no new breach surface to worry about.</li>
+        <li>The engine is <b>robotic process automation</b> — software doing exactly what a trained front-desk employee does: reading the schedule, logging into portals, writing down what it finds.</li>
+        <li>No generative AI. No ChatGPT. No patient data sent to any AI service — decisions are made by fixed, deterministic rules.</li>
+      </ul>
+      <div class="callout">
+        <h4>About the Gmail sign-in</h4>
+        <p>Some carrier portals email a one-time code at login. If your office connects a Google account, InstantVerify uses secure, <b>read-only</b> Google sign-in to retrieve just that code and complete the login. Your email, credentials, and patient data never leave your building. See our <a href="/privacy-policy/">Privacy Policy</a> for the full detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PMS -->
+<div class="pms">
+  <div class="wrap">
+    <div class="eyebrow">Works with what you already run</div>
+    <h2>No rip-and-replace. No new logins for your team.</h2>
+    <div class="names">Eaglesoft® &nbsp;·&nbsp; Dentrix® &nbsp;·&nbsp; Open Dental®</div>
+    <div class="fine">Eaglesoft, Dentrix, and Open Dental are trademarks of their respective owners. InstantVerify AI is not affiliated with or endorsed by them.</div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pad pricing" id="start">
+  <div class="wrap">
+    <div class="eyebrow">Charter Practice Rate</div>
+    <h2 class="sec">Lock your price for life.</h2>
+    <p class="lead">Charter practices pay $250/mo — forever, instead of the regular $500/mo. When the remaining spots are gone, the price goes up, and it never comes back down. Month-to-month, no contract, cancel anytime.</p>
+
+    <div class="counter-box">
+      <div class="price-today">
+        <span class="pt-num" id="ptNum">$250</span><span class="pt-per">/mo</span>
+        <span class="pt-tag">Charter Practice Rate · locked for life</span>
+      </div>
+      <div class="price-full">Regular price <s id="pfNum">$500/mo</s> once the remaining spots are gone.</div>
+      <div class="counter-line"><span class="c-dot"></span> <b id="cNum">&mdash;</b> <span id="cWord">spots</span> remaining at this rate <span class="c-live">updating live</span></div>
+      <div class="lock-note">Month-to-month, no contract, cancel anytime. Your charter rate <b>never goes up</b>.</div>
+    </div>
+
+    <div class="get-grid">
+      <div class="get-card">
+        <h3>$1 for your first 13 days</h3>
+        <p>Run it on your real schedule for thirteen days. Card on file to start; <span class="price">cancel before day 14 and you've spent a dollar.</span></p>
+        <a href="#signup" class="btn btn-primary btn-block" data-cta="pricing_start_13day">Start for $1</a>
+      </div>
+      <div class="get-card">
+        <h3>Get the full product</h3>
+        <p>The complete system, month-to-month. <span class="price">No contract</span>, cancel anytime — and your charter rate is locked in.</p>
+        <a href="#signup" class="btn btn-ghost btn-block" data-cta="pricing_get_started" style="border-color:rgba(255,255,255,.3);color:#fff;">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="pad signup" id="signup">
+  <div class="wrap">
+    <div style="text-align:center;max-width:600px;margin:0 auto;">
+      <div class="eyebrow" style="color:var(--blue);">Claim your spot</div>
+      <h2 class="sec">Reserve your Charter Practice Rate.</h2>
+      <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll reach out within 24 hours to get you set up and lock your rate.</p>
+    </div>
+    <div class="form-card">
+      <div id="form-wrap">
+        <div class="form-title">Claim a charter spot</div>
+        <div class="form-sub">No commitment to talk. We'll confirm fit and walk you through setup.</div>
+        <div class="fg"><label>Practice name</label><input type="text" id="practice" placeholder="Smile Dental Group"></div>
+        <div class="fg"><label>Is your practice part of a DSO?</label>
+          <select id="dso_yn" onchange="document.getElementById('dso-fields').style.display=this.value==='Yes'?'grid':'none'"><option value="No" selected>No — independent practice</option><option value="Yes">Yes — part of a DSO</option></select>
+        </div>
+        <div class="frow" id="dso-fields" style="display:none">
+          <div class="fg"><label>DSO name</label><input type="text" id="dso_name" placeholder="Bright Smiles Partners"></div>
+          <div class="fg"><label>Number of locations</label><input type="number" id="dso_locations" min="1" placeholder="12"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>First name</label><input type="text" id="fname" placeholder="Darren"></div>
+          <div class="fg"><label>Last name</label><input type="text" id="lname" placeholder="Kaberna"></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" id="email" placeholder="doctor@yourpractice.com"></div>
+        <div class="fg"><label>Phone</label><input type="tel" id="phone" placeholder="(719) 555-0100"></div>
+        <div class="fg"><label>Practice software</label>
+          <select id="pms"><option value="" disabled selected>Select your software</option><option>Dentrix</option><option>Eaglesoft</option><option>Open Dental</option><option>Other</option></select>
+        </div>
+        <div class="fg"><label>Number of operatories</label>
+          <select id="ops"><option value="" disabled selected>Select range</option><option>1–3</option><option>4–6</option><option>7–10</option><option>11+</option></select>
+        </div>
+        <div class="fg"><label>Anything else? (optional)</label><textarea id="notes" rows="2" placeholder="Current verification process, biggest pain point, etc."></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Reserve my charter spot →</button>
+        <div class="form-note">No commitment required. We'll talk through your practice before any setup.</div>
+      </div>
+      <div class="success-msg" id="success">
+        <div class="ico">✅</div>
+        <h3>You're on the list!</h3>
+        <p>We'll reach out within 24 hours to get you set up and lock your charter rate.<br><br>— Darren &amp; Brian, InstantVerify AI</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Instant<span>Verify</span> AI</div>
+  <nav class="footer-nav">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms-of-service/">Terms of Service</a>
+    <a href="/patient-data/">How We Handle Patient Data</a>
+    <a href="https://instantverify-ai.ghost.io" target="_blank" rel="noopener">Blog</a>
+    <a href="mailto:Support@InstantVerifyAI.com">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 InstantVerify AI · Colorado Springs, CO · Verification runs on your practice's own computers.</div>
+</footer>
+
+<script>
+  /* ============================================================
+     FOUNDING PRICING — CONFIG (edit these two things)
+     1) TIERS: the price ladder. Each tier is {price, seats}.
+     2) COUNTER_ENDPOINT: a URL that returns JSON {"sold": N} —
+        the REAL number of founding members sold so far. Wire it
+        to your Stripe/Sheet count. Leave "" to show the launch
+        state (0 sold). NEVER fake this number.
+     ============================================================ */
+  /* ============================================================
+     FOUNDING PRICING — CONFIG (edit these)
+     1) TIERS: how the founding price steps up as seats fill. Only
+        TODAY's price + spots-left are shown; the full ladder is not.
+     2) REGULAR_PRICE: the normal price, shown as the strike-through
+        contrast ("regular price $X once founding is gone").
+     3) COUNTER_ENDPOINT: a URL returning JSON {"sold": N} — the REAL
+        number of founding members sold. Wire to Stripe/Sheet. Leave
+        "" for the launch state (0 sold). NEVER fake this number.
+     ============================================================ */
+  const TIERS = [
+    { price: 250, seats: 50 }   // <-- single founding tier; no ladder shown
+  ];
+  const REGULAR_PRICE = 500;    // <-- the full/contrast price
+  const COUNTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbx7G60H2TFeD1DI0EmEpvNClP2K6-Xspxb4_hbnjujNPAz0R0nfnBjWOVAdz0r4JeLwUQ/exec";
+
+  // Apps Script web apps don't reliably send CORS headers, so we load the
+  // count via JSONP (a <script> callback) rather than fetch(). The counter
+  // script returns wrapped output when called with ?callback=.
+  let _cbSeq = 0;
+  function getSold() {
+    return new Promise((resolve) => {
+      if (!COUNTER_ENDPOINT) { resolve(0); return; }
+      const cb = 'ivCount' + (++_cbSeq);
+      const s = document.createElement('script');
+      let done = false;
+      const cleanup = () => { try { delete window[cb]; } catch (e) { window[cb] = undefined; } if (s.parentNode) s.parentNode.removeChild(s); };
+      window[cb] = (data) => { done = true; resolve(Math.max(0, parseInt(data && data.sold, 10) || 0)); cleanup(); };
+      s.onerror = () => { if (!done) { resolve(0); cleanup(); } };
+      s.src = COUNTER_ENDPOINT + (COUNTER_ENDPOINT.indexOf('?') === -1 ? '?' : '&') + 'callback=' + cb;
+      document.body.appendChild(s);
+      setTimeout(() => { if (!done) { resolve(0); cleanup(); } }, 8000);
+    });
+  }
+
+  function renderPricing(sold) {
+    let remaining = sold, idx = 0;
+    for (let i = 0; i < TIERS.length; i++) {
+      if (remaining < TIERS[i].seats) { idx = i; break; }
+      remaining -= TIERS[i].seats;
+      idx = i + 1;
+    }
+    if (idx >= TIERS.length) {
+      document.getElementById('ptNum').textContent = '$' + REGULAR_PRICE;
+      document.querySelector('.pt-tag').textContent = 'Regular pricing';
+      document.querySelector('.price-full').textContent = 'The Charter Practice Rate has closed.';
+      document.getElementById('cNum').textContent = '0';
+      document.getElementById('cWord').textContent = 'spots';
+      document.getElementById('heroCounter').innerHTML = 'The Charter Practice Rate has closed — now $' + REGULAR_PRICE + '/mo.';
+      return;
+    }
+    const cur = TIERS[idx];
+    const left = cur.seats - remaining;
+    document.getElementById('ptNum').textContent = '$' + cur.price;
+    document.getElementById('pfNum').textContent = '$' + REGULAR_PRICE + '/mo';
+    document.getElementById('cNum').textContent = left;
+    document.getElementById('cWord').textContent = (left === 1 ? 'spot' : 'spots');
+    document.getElementById('heroCounter').innerHTML =
+      `Charter Practice Rate — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life.`;
+  }
+
+  function refreshCount(){ getSold().then(renderPricing); }
+  refreshCount();
+  setInterval(refreshCount, 45000); // auto-updates the live count while the page is open
+
+  /* ---- Analytics: CTA clicks + explainer video engagement ---- */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-cta]');
+    if (a && typeof gtag === 'function') gtag('event', 'cta_click', { cta_id: a.dataset.cta, link_url: a.getAttribute('href') });
+  });
+  (function(){
+    const v = document.querySelector('.explainer video');
+    if (!v) return;
+    const send = (name, extra) => { if (typeof gtag === 'function') gtag('event', name, Object.assign({ video_title: 'InstantVerify AI in 60 seconds', video_provider: 'self-hosted' }, extra)); };
+    let started = false, half = false, done = false;
+    v.addEventListener('play', () => { if (!started) { started = true; send('video_start', { video_percent: 0 }); } });
+    v.addEventListener('timeupdate', () => { if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; send('video_progress', { video_percent: 50 }); } });
+    v.addEventListener('ended', () => { if (!done) { done = true; send('video_complete', { video_percent: 100 }); } });
+  })();
+
+  /* ---- Lead capture (posts to Google Apps Script) ---- */
+  const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
+  async function submitForm() {
+    alert('Preview only — the signup form is disabled on this page.'); return;
+    const fields = ['practice','fname','lname','email','phone','pms','ops'];
+    const data = { notes: document.getElementById('notes')?.value?.trim() || "",
+                   dso: document.getElementById('dso_yn').value,
+                   dso_name: document.getElementById('dso_name').value.trim(),
+                   dso_locations: document.getElementById('dso_locations').value.trim() };
+    let valid = true;
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; }
+      else { el.style.borderColor = ''; data[id] = el.value.trim(); }
+    });
+    if (!valid) return;
+    const btn = document.querySelector('.form-submit');
+    const original = btn.textContent;
+    btn.textContent = 'Submitting...'; btn.disabled = true;
+    try {
+      await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data), redirect:'follow' });
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success').classList.add('show');
+      // Analytics: conversion only, no personal details (names/emails/phone never sent)
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'charter_signup', practice_software: data.pms, operatories: data.ops });
+      document.getElementById('signup').scrollIntoView({ behavior:'smooth' });
+    } catch (err) {
+      console.error('Lead submission error:', err);
+      btn.textContent = original; btn.disabled = false;
+      alert('Something went wrong — please try again or email Support@InstantVerifyAI.com directly.');
+    }
+  }
+</script>
+</body>
+</html>
