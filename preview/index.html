@@ -259,6 +259,17 @@
     color:#00b894;
   }
 
+  /* TESTIMONIALS */
+  .testimonials{background:var(--white);}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;margin-top:34px;}
+  .tcard{margin:0;}
+  .yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--navy);box-shadow:0 16px 44px rgba(13,31,53,.16);}
+  .yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+  .yt:hover img{transform:scale(1.03);}
+  .yt .play{position:absolute;left:20px;bottom:20px;width:68px;height:68px;border-radius:50%;background:rgba(0,184,148,.95);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+  .yt .play::after{content:"";position:absolute;left:27px;top:21px;border-style:solid;border-width:13px 0 13px 20px;border-color:transparent transparent transparent var(--navy);}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .tcard figcaption{margin-top:12px;font-size:1rem;color:var(--gray);font-weight:500;}
   /* ROUND 1 (Brian): bigger type, less side space */
   html{font-size:106.25%;}
   .wrap{max-width:1240px;padding:0 4%;}
@@ -449,6 +460,31 @@
     <p class="report-cap">Sample report — patient identifiers redacted.</p>
     <div class="report-cta">
       <a href="/sample-report/" class="report-btn" data-cta="report_full_day">See a full day of real reports<span class="sub">Daily sheet · focused &amp; comprehensive · per-tooth timing</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="pad testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="eyebrow">From offices using it</div>
+    <h2 class="sec">Don't take our word for it.</h2>
+    <p class="lead">Front desk teams, in their own offices, on what their mornings look like now.</p>
+    <div class="tgrid">
+      <figure class="tcard">
+        <button class="yt" data-yt="TVDBDM6gT-g" aria-label="Play testimonial video">
+          <img src="https://i.ytimg.com/vi/TVDBDM6gT-g/maxresdefault.jpg" alt="A front desk team member talking about InstantVerify in her office" width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption>Front desk team member</figcaption>
+      </figure>
+      <figure class="tcard">
+        <button class="yt" data-yt="IpJ_f5xxAQE" aria-label="Play testimonial video">
+          <img src="https://i.ytimg.com/vi/IpJ_f5xxAQE/maxresdefault.jpg" alt="An office team member talking about InstantVerify at her desk" width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption>Office team member</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -661,6 +697,13 @@
     v.addEventListener('timeupdate', () => { if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; send('video_progress', { video_percent: 50 }); } });
     v.addEventListener('ended', () => { if (!done) { done = true; send('video_complete', { video_percent: 100 }); } });
   })();
+
+  /* ---- Testimonials: load YouTube only when clicked ---- */
+  document.querySelectorAll('.yt').forEach(btn => btn.addEventListener('click', () => {
+    const id = btn.dataset.yt;
+    btn.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" title="InstantVerify testimonial" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    if (typeof gtag === 'function') gtag('event', 'video_start', { video_title: 'testimonial ' + id, video_provider: 'youtube' });
+  }, { once: true }));
 
   /* ---- Lead capture (posts to Google Apps Script) ---- */
   const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
