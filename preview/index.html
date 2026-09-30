@@ -29,6 +29,58 @@
 
 
 
+<!-- Team devices: open any page with ?team=1 once per browser to opt out of ad tracking (?team=0 undoes it) -->
+<script>
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('team');
+      if (q === '1') localStorage.setItem('iv_team', '1');
+      if (q === '0') localStorage.removeItem('iv_team');
+      window.IV_TEAM = localStorage.getItem('iv_team') === '1';
+    } catch (e) { window.IV_TEAM = false; }
+    if (window.IV_TEAM && typeof window.gtag === 'function') window.gtag('set', { traffic_type: 'internal' });
+  })();
+</script>
+<!-- AdRoll (InstantVerify AI profile) — skipped on team devices -->
+<script>
+  if (!window.IV_TEAM) {
+    adroll_adv_id = "MXZQK27SRJHX7NLZIRUCOY";
+    adroll_pix_id = "D3UTPXV33FDATCKK4IXSX7";
+    adroll_version = "2.0";
+    (function (w, d, e, o, a) {
+      w.__adroll_loaded = true;
+      w.adroll = w.adroll || [];
+      w.adroll.f = ['setProperties', 'identify', 'track', 'identify_email', 'get_cookie'];
+      var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js";
+      for (a = 0; a < w.adroll.f.length; a++) {
+        w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function (n) { return function () { w.adroll.push([n, arguments]); }; })(w.adroll.f[a]);
+      }
+      e = d.createElement('script'); o = d.getElementsByTagName('script')[0];
+      e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o);
+    })(window, document);
+    adroll.track("pageView");
+  }
+  // Mirror key site events to AdRoll audience segments. Event names only — never form or chat contents.
+  (function () {
+    var SEGMENTS = {
+      video_start: 'iv_video_started', video_complete: 'iv_video_finished',
+      chat_open: 'iv_chat_opened', chat_first_message: 'iv_chat_engaged',
+      generate_lead: 'iv_lead', cta_click: 'iv_cta_click'
+    };
+    var sent = {};
+    var orig = window.gtag;
+    window.gtag = function () {
+      try {
+        var seg = arguments[0] === 'event' && SEGMENTS[arguments[1]];
+        if (seg && !sent[seg] && !window.IV_TEAM && window.adroll && window.adroll.track) {
+          sent[seg] = true;
+          window.adroll.track('pageView', { segment_name: seg });
+        }
+      } catch (e) {}
+      if (typeof orig === 'function') return orig.apply(this, arguments);
+    };
+  })();
+</script>
 <!-- Structured data -->
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "VideoObject", "name": "InstantVerify AI in 60 seconds", "description": "How InstantVerify AI reads your schedule overnight and has a full dental benefits breakdown waiting every morning, shown with real, redacted reports.", "thumbnailUrl": "https://instantverifyai.com/explainer-poster.jpg", "uploadDate": "2026-09-26", "duration": "PT1M", "contentUrl": "https://instantverifyai.com/explainer.mp4", "embedUrl": "https://instantverifyai.com/#video", "transcript": "Every morning, your front desk logs into portal after portal, and there's never time to read past the first screen. InstantVerify reads your schedule overnight and has every verification waiting when you walk in. And it goes deeper than anyone has time to. Before Darren sits down for his exam, you'll know his crown on #14 won't be covered. Same with fillings. Every patient gets the right report for what they're coming in for. A cleaning and exam gets the full picture, because that's where treatment gets discussed. A patient back for an approved crown gets a focused report: did anything change? Every number comes straight from the carrier. No guesses. No made-up numbers. It runs on your office computer, and patient data stays with your practice. InstantVerify AI. The verification tool that actually understands your schedule."}
