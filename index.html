@@ -25,7 +25,9 @@
 <meta name="twitter:image" content="https://instantverifyai.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+
+
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WTRZST0WC"></script>
@@ -36,6 +38,58 @@
   gtag('config', 'G-3WTRZST0WC');
 </script>
 
+<!-- Team devices: open any page with ?team=1 once per browser to opt out of ad tracking (?team=0 undoes it) -->
+<script>
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('team');
+      if (q === '1') localStorage.setItem('iv_team', '1');
+      if (q === '0') localStorage.removeItem('iv_team');
+      window.IV_TEAM = localStorage.getItem('iv_team') === '1';
+    } catch (e) { window.IV_TEAM = false; }
+    if (window.IV_TEAM && typeof window.gtag === 'function') window.gtag('set', { traffic_type: 'internal' });
+  })();
+</script>
+<!-- AdRoll (InstantVerify AI profile) — skipped on team devices -->
+<script>
+  if (!window.IV_TEAM) {
+    adroll_adv_id = "MXZQK27SRJHX7NLZIRUCOY";
+    adroll_pix_id = "D3UTPXV33FDATCKK4IXSX7";
+    adroll_version = "2.0";
+    (function (w, d, e, o, a) {
+      w.__adroll_loaded = true;
+      w.adroll = w.adroll || [];
+      w.adroll.f = ['setProperties', 'identify', 'track', 'identify_email', 'get_cookie'];
+      var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js";
+      for (a = 0; a < w.adroll.f.length; a++) {
+        w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function (n) { return function () { w.adroll.push([n, arguments]); }; })(w.adroll.f[a]);
+      }
+      e = d.createElement('script'); o = d.getElementsByTagName('script')[0];
+      e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o);
+    })(window, document);
+    adroll.track("pageView");
+  }
+  // Mirror key site events to AdRoll audience segments. Event names only — never form or chat contents.
+  (function () {
+    var SEGMENTS = {
+      video_start: 'iv_video_started', video_complete: 'iv_video_finished',
+      chat_open: 'iv_chat_opened', chat_first_message: 'iv_chat_engaged',
+      generate_lead: 'iv_lead', cta_click: 'iv_cta_click'
+    };
+    var sent = {};
+    var orig = window.gtag;
+    window.gtag = function () {
+      try {
+        var seg = arguments[0] === 'event' && SEGMENTS[arguments[1]];
+        if (seg && !sent[seg] && !window.IV_TEAM && window.adroll && window.adroll.track) {
+          sent[seg] = true;
+          window.adroll.track('pageView', { segment_name: seg });
+        }
+      } catch (e) {}
+      if (typeof orig === 'function') return orig.apply(this, arguments);
+    };
+  })();
+</script>
 <!-- Structured data -->
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "VideoObject", "name": "InstantVerify AI in 60 seconds", "description": "How InstantVerify AI reads your schedule overnight and has a full dental benefits breakdown waiting every morning, shown with real, redacted reports.", "thumbnailUrl": "https://instantverifyai.com/explainer-poster.jpg", "uploadDate": "2026-09-26", "duration": "PT1M", "contentUrl": "https://instantverifyai.com/explainer.mp4", "embedUrl": "https://instantverifyai.com/#video", "transcript": "Every morning, your front desk logs into portal after portal, and there's never time to read past the first screen. InstantVerify reads your schedule overnight and has every verification waiting when you walk in. And it goes deeper than anyone has time to. Before Darren sits down for his exam, you'll know his crown on #14 won't be covered. Same with fillings. Every patient gets the right report for what they're coming in for. A cleaning and exam gets the full picture, because that's where treatment gets discussed. A patient back for an approved crown gets a focused report: did anything change? Every number comes straight from the carrier. No guesses. No made-up numbers. It runs on your office computer, and patient data stays with your practice. InstantVerify AI. The verification tool that actually understands your schedule."}
@@ -45,7 +99,7 @@
   "@context":"https://schema.org","@type":"SoftwareApplication","name":"InstantVerify AI",
   "applicationCategory":"BusinessApplication","operatingSystem":"Windows","url":"https://instantverifyai.com",
   "description":"Dental insurance software that runs on a practice's own computer and delivers a full benefits breakdown — what every procedure will cost, read from all benefit tabs of the carrier portal — before the patient is seen, without sending patient data to the cloud.",
-  "offers":{"@type":"Offer","priceCurrency":"USD","price":"250","description":"Founders special $250/mo, locked for life while spots remain. Regular price $500/mo. Month-to-month, no contract."}
+  "offers":{"@type":"Offer","priceCurrency":"USD","price":"250","description":"Charter Practice Rate $250/mo, locked for life while spots remain. Regular price $500/mo. Month-to-month, no contract."}
 }
 </script>
 <script type="application/ld+json">
@@ -265,6 +319,86 @@
   footer .footer-nav a:hover{
     color:#00b894;
   }
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--white);}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;margin-top:34px;}
+  .tcard{margin:0;}
+  .yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--navy);box-shadow:0 16px 44px rgba(13,31,53,.16);}
+  .yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+  .yt:hover img{transform:scale(1.03);}
+  .yt .play{position:absolute;left:20px;bottom:20px;width:68px;height:68px;border-radius:50%;background:rgba(0,184,148,.95);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+  .yt .play::after{content:"";position:absolute;left:27px;top:21px;border-style:solid;border-width:13px 0 13px 20px;border-color:transparent transparent transparent var(--navy);}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .tcard figcaption{margin-top:12px;font-size:1rem;color:var(--gray);font-weight:500;}
+  /* ROUND 1 (Brian): bigger type, less side space */
+  html{font-size:106.25%;}
+  .wrap{max-width:1240px;padding:0 4%;}
+  .fork-inner{max-width:1240px;}
+  .eyebrow{font-size:.8rem;}
+  p.lead{font-size:1.2rem;max-width:760px;}
+  .hero-sub{font-size:1.3rem;max-width:680px;}
+  h1{font-size:clamp(2.6rem,6vw,4.2rem);}
+  .fork-d,.fcard p,.pcard li,.report-cap,.vcap{font-size:1.02rem;}
+  .fcard h3{font-size:1.18rem;}
+  .fork-h{font-size:1.45rem;}
+  .nav-link{font-size:.98rem;}
+  .nav-cta{font-size:.95rem;padding:10px 20px;}
+  .pcard .pnote{color:rgba(255,255,255,.55);font-style:italic;}
+  .founder{padding:70px 0!important;}
+  .founder-card{max-width:900px;margin:0 auto;padding:40px 48px;}
+  .founder-card p{font-size:1.25rem;margin-bottom:14px;}
+  .founder-card p.punch{font-family:"Syne",sans-serif;font-weight:700;color:var(--navy);font-size:1.35rem;}
+  .founder-card .sig{font-size:1.02rem;}
+  .founder-card .sig2{font-weight:400;color:var(--gray);font-family:"DM Sans",sans-serif;}
+  @media(max-width:860px){.nav-link{display:none;}}
+  .pricing p.lead{color:rgba(255,255,255,.75);}
+  .lock-note.first30{margin-top:10px;color:#fff;}
+  .lock-note.first30 b{color:var(--teal);}
+  /* ROUND 2 (Brian): easier-to-read type + phone layout */
+  h1,h2.sec,.eyebrow,.fork-k,.fork-h,.stat b,.fcard h3,.portals h3.ph,.pcard .pk,.callout h4,.pms h2,
+  .founder-card .sig,.pt-tag,.get-card h3,.form-title,.form-submit,.success-msg h3,.founder-card p.punch{
+    font-family:"DM Sans",system-ui,-apple-system,sans-serif;}
+  h1{font-weight:800;letter-spacing:-.035em;line-height:1.04;}
+  h2.sec{font-weight:800;letter-spacing:-.025em;line-height:1.12;}
+  .fork-h,.fcard h3,.portals h3.ph,.get-card h3,.form-title,.success-msg h3,.callout h4{font-weight:700;letter-spacing:-.01em;}
+  .stat b{font-weight:800;letter-spacing:-.02em;}
+  .eyebrow,.fork-k{font-size:.84rem;font-weight:700;letter-spacing:.08em;}
+  p.lead,.hero-sub,.founder-card p{font-weight:400;}
+  p.lead{color:#3f4a59;}
+  .features p.lead,.pricing p.lead{color:rgba(255,255,255,.8);}
+  .fcard p,.pcard li{color:rgba(255,255,255,.82);}
+  .hero-sub{color:rgba(255,255,255,.85);}
+  .stat span{font-size:1rem;}
+  body{line-height:1.65;}
+  input,select,textarea{font-size:16px!important;}
+  @media(max-width:640px){
+    section.pad{padding:60px 0;}
+    .wrap{padding:0 20px;}
+    .hero{padding:100px 0 60px;}
+    h1{font-size:2.4rem;}
+    h2.sec{font-size:1.8rem;}
+    .hero-sub,p.lead{font-size:1.12rem;}
+    .hero-actions{flex-direction:column;align-items:stretch;}
+    .hero-actions .btn,.get-card .btn{width:100%;text-align:center;}
+    .btn{min-height:52px;display:flex;align-items:center;justify-content:center;}
+    .fork-card{padding:32px 20px;}
+    .founder{padding:48px 0!important;}
+    .founder-card{padding:26px 22px;}
+    .founder-card p{font-size:1.12rem;}
+    .stat-row{gap:22px;}
+    .nav-logo{font-size:1.05rem;}
+    .nav-cta{font-size:.9rem;padding:9px 14px;}
+    nav.topnav{padding:0 16px;}
+    .fcard,.pcard{padding:22px 20px;}
+    .nav-logo{white-space:nowrap;font-size:1rem;}
+    .report-cap::after{content:" Tap the report to open it full size.";}
+  }
+  #why,#start,#about,#signup,#video,#report,#testimonials,#portals{scroll-margin-top:78px;}
+  .ptm{margin-top:14px;font-size:.8rem;color:rgba(255,255,255,.45);max-width:760px;}
+  .cta-short{display:none;}
+  @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
+  .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
 </style>
 </head>
 <body>
@@ -272,8 +406,11 @@
 <nav class="topnav">
   <div class="nav-logo">Instant<span>Verify</span> AI</div>
   <div class="nav-right">
+    <a href="/why-us/" class="nav-link">Why us</a>
+    <a href="#start" class="nav-link">Pricing</a>
+    <a href="#about" class="nav-link">About us</a>
     <a href="https://instantverify-ai.ghost.io" class="nav-link" target="_blank" rel="noopener">Blog</a>
-    <a href="#start" class="nav-cta" data-cta="nav_founding_pricing">Founding pricing</a>
+    <a href="#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
 
@@ -285,18 +422,31 @@
     <h1>Nothing gets missed.<br><span class="dim">Nothing gets guessed.</span></h1>
     <p class="hero-sub">InstantVerify reads every plan, every procedure, every morning — quietly, before you open. The full benefits breakdown, not just whether they're covered. On your own computer, never the cloud.</p>
     <div class="hero-actions">
-      <a href="#start" class="btn btn-primary" data-cta="hero_claim_spot">Claim your founding spot</a>
+      <a href="#start" class="btn btn-primary" data-cta="hero_claim_spot">Claim your Charter Practice Rate</a>
       <a href="#report" class="btn btn-ghost" data-cta="hero_see_report">See a real report</a>
     </div>
-    <div class="hero-counter" id="heroCounter">Founders special — $250/mo locked for life while spots remain.</div>
+    <div class="hero-counter" id="heroCounter">Charter Practice Rate — $250/mo locked for life while spots remain.</div>
   </div>
 </header>
+
+<!-- FOUNDER -->
+<section class="pad founder" id="about">
+  <div class="wrap">
+    <div class="founder-card">
+      <p>I've been inside dental offices since 1997, watching front desks melt down on busy Tuesdays.</p>
+      <p>InstantVerify wasn't dreamed up by a programmer on the outside. It's built by someone who lived the problem.</p>
+      <p>Financial arrangement already in place? Skip the re-run. Patient in for an exam? Go deep before the treatment plan.</p>
+      <p class="punch">It works the way a great office already thinks.</p>
+      <div class="sig">— Darren Kaberna, Founder &amp; CEO<br><span class="sig2">with Dr. Brian Johnston, Co-Founder: a decade+ living in dental tech, hearing the same broken verification story everywhere.</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- FORK -->
 <div class="fork">
   <div class="fork-inner">
     <div class="fork-card">
-      <div class="fork-k">Solo &amp; small practices</div>
+      <div class="fork-k">Solo practices</div>
       <div class="fork-h">One office</div>
       <div class="fork-d">Verified benefits waiting every morning, on your own computer. Install once, ten minutes, no workflow changes.</div>
       <a href="#start" class="fork-link" data-cta="fork_start_today">Start today →</a>
@@ -316,10 +466,10 @@
     <div class="eyebrow">See it in 60 seconds</div>
     <h2 class="sec">Real reports. Real schedule.<br>No mockups.</h2>
     <div class="vid">
-      <video controls playsinline preload="metadata" poster="explainer-poster.jpg">
-        <source src="explainer.mp4" type="video/mp4">
-        <track kind="captions" src="explainer.en.vtt" srclang="en" label="English">
-        Your browser can't play this video. <a href="explainer.mp4">Download it here</a>.
+      <video controls playsinline preload="metadata" poster="/explainer-poster.jpg">
+        <source src="/explainer.mp4" type="video/mp4">
+        <track kind="captions" src="/explainer.en.vtt" srclang="en" label="English">
+        Your browser can't play this video. <a href="/explainer.mp4">Download it here</a>.
       </video>
     </div>
     <p class="vcap">Every report in this video is real InstantVerify output, with patient details redacted.</p>
@@ -341,16 +491,15 @@
 </section>
 
 <!-- FEATURES -->
-<section class="pad features">
+<section class="pad features" id="why">
   <div class="wrap">
-    <div class="eyebrow">What we do that others don't</div>
     <h2 class="sec">Most tools confirm coverage.<br>InstantVerify reads everything.</h2>
-    <p class="lead">The cheap tools read one screen. The thorough option costs $5,000–$10,000 a year in staff or an outside service. InstantVerify delivers that depth automatically — for the price of software.</p>
+    <p class="lead">A basic eligibility check tells you whether the patient is covered. The thorough option costs $3,000+ a month in staff or an outside service. InstantVerify delivers that depth automatically — for the price of software.</p>
     <div class="fgrid">
       <div class="fcard">
         <div class="ico">📑</div>
         <h3>All six benefit tabs</h3>
-        <p>Most tools read only the Overview tab. InstantVerify reads all six — Overview, Deductibles, Coverage, Frequency, Treatment History, and Waiting Periods — where the frequency limits, tooth rules, and missing-tooth clauses actually live.</p>
+        <p>A basic eligibility check often stops at the overview. InstantVerify reads all six — Overview, Deductibles, Coverage, Frequency, Treatment History, and Waiting Periods — where the frequency limits, tooth rules, and missing-tooth clauses actually live.</p>
         <span class="tag">Portal-complete</span>
       </div>
       <div class="fcard">
@@ -386,12 +535,8 @@
         <div class="pcard">
           <div class="pk">Delta Dental</div>
           <ul>
-            <li>Delta Dental of Colorado</li>
-            <li>Delta Dental of Washington</li>
-            <li>Delta Dental of Oregon (Moda Benefit Tracker)</li>
-            <li>Delta Dental of California</li>
-            <li>Dental Office Toolkit, including FEP plans</li>
-            <li>Delta Dental national lookups</li>
+            <li>Delta Dental plans, including FEP</li>
+            <li class="pnote">Tell us your state and we'll have it running for your office.</li>
           </ul>
         </div>
         <div class="pcard">
@@ -405,6 +550,7 @@
       </div>
       <div class="psoon"><span>Coming soon:</span><span class="chip">Aetna</span><span class="chip">Cigna</span><span class="chip">Guardian</span><span class="chip">Principal</span><span class="chip">More state Delta Dental plans</span></div>
       <p class="pask">Don't see your carrier? <a href="#signup" data-cta="portals_tell_us">Tell us which portals your office uses</a> and we'll prioritize them.</p>
+      <p class="ptm">Delta Dental, MetLife, United Concordia, Aetna, Cigna, Guardian, and Principal are trademarks of their respective owners. InstantVerify AI is not affiliated with or endorsed by any insurance carrier.</p>
     </div>
   </div>
 </section>
@@ -412,13 +558,37 @@
 <!-- REPORT -->
 <section class="pad report" id="report">
   <div class="wrap">
-    <div class="eyebrow">See a real report</div>
     <h2 class="sec">Not a mockup. An actual report.</h2>
     <p class="lead">This is a real InstantVerify report, with the patient's identifying details redacted. Every number is read straight from the carrier portal — plan, network status, remaining benefits, code-level rates, and frequency limits, all on one clean page your team reads in seconds.</p>
-    <div class="report-shot"><picture><source srcset="report-sample.webp" type="image/webp"><img src="report-sample.png" alt="A sample InstantVerify verification report showing plan and policy details, remaining benefits, coverage by category with code-level rates, today's procedures, and commonly quoted codes — patient identifiers redacted." width="1224" height="1584" loading="lazy" decoding="async"></picture></div>
+    <div class="report-shot"><a href="/report-sample.png" target="_blank" rel="noopener" aria-label="Open the full-size sample report"><picture><source srcset="/report-sample.webp" type="image/webp"><img src="/report-sample.png" alt="A sample InstantVerify verification report showing plan and policy details, remaining benefits, coverage by category with code-level rates, today's procedures, and commonly quoted codes — patient identifiers redacted." width="1224" height="1584" loading="lazy" decoding="async"></picture></a></div>
     <p class="report-cap">Sample report — patient identifiers redacted.</p>
     <div class="report-cta">
       <a href="/sample-report/" class="report-btn" data-cta="report_full_day">See a full day of real reports<span class="sub">Daily sheet · focused &amp; comprehensive · per-tooth timing</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="pad testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="eyebrow">From offices using it</div>
+    <h2 class="sec">Don't take our word for it.</h2>
+    <p class="lead">Front desk teams, in their own offices, on what their mornings look like now.</p>
+    <div class="tgrid">
+      <figure class="tcard">
+        <button class="yt" data-yt="TVDBDM6gT-g" aria-label="Play testimonial video">
+          <img src="https://i.ytimg.com/vi/TVDBDM6gT-g/maxresdefault.jpg" alt="A front desk team member talking about InstantVerify in her office" width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption>Front desk team member</figcaption>
+      </figure>
+      <figure class="tcard">
+        <button class="yt" data-yt="IpJ_f5xxAQE" aria-label="Play testimonial video">
+          <img src="https://i.ytimg.com/vi/IpJ_f5xxAQE/maxresdefault.jpg" alt="An office team member talking about InstantVerify at her desk" width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption>Office team member</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -453,44 +623,33 @@
   </div>
 </div>
 
-<!-- FOUNDER -->
-<section class="pad founder">
-  <div class="wrap">
-    <div class="eyebrow">Why I built it</div>
-    <h2 class="sec">Built from inside the office.</h2>
-    <div class="founder-card">
-      <p>I spent fifteen years coaching dental offices — inside the operatory, watching how a front desk actually runs on a busy Tuesday. InstantVerify isn't software a programmer imagined from the outside; it's built around how an office really flows, by someone who lived the problem. That's why it doesn't treat every patient the same: a patient who already has a financial arrangement in place doesn't need a full breakdown re-run — you did that a few weeks ago. But a patient coming in for an exam is about to get a treatment plan, and you can't write that plan accurately without every detail first. It works the way a good office already thinks.</p>
-      <div class="sig">— Darren Kaberna, Founder &amp; CEO<br><span style="font-weight:400;color:var(--gray);">with Brian Johnston, Co-Founder — a decade selling dental technology to thousands of practices, and hearing the same broken verification story in every one.</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- PRICING -->
 <section class="pad pricing" id="start">
   <div class="wrap">
-    <div class="eyebrow">Founding pricing</div>
+    <div class="eyebrow">Charter Practice Rate</div>
     <h2 class="sec">Lock your price for life.</h2>
-    <p class="lead">Founding offices pay $250/mo — forever, instead of the regular $500/mo. When the remaining spots are gone, the price goes up, and it never comes back down. Month-to-month, no contract, cancel anytime.</p>
+    <p class="lead">Charter practices pay $250/mo — forever, instead of the regular $500/mo. When the remaining spots are gone, the price goes up, and it never comes back down. Month-to-month, no contract, cancel anytime.</p>
 
     <div class="counter-box">
       <div class="price-today">
         <span class="pt-num" id="ptNum">$250</span><span class="pt-per">/mo</span>
-        <span class="pt-tag">Founders special · locked for life</span>
+        <span class="pt-tag">Charter Practice Rate · locked for life</span>
       </div>
       <div class="price-full">Regular price <s id="pfNum">$500/mo</s> once the remaining spots are gone.</div>
       <div class="counter-line"><span class="c-dot"></span> <b id="cNum">&mdash;</b> <span id="cWord">spots</span> remaining at this rate <span class="c-live">updating live</span></div>
-      <div class="lock-note">Month-to-month, no contract, cancel anytime. Your founding rate <b>never goes up</b>.</div>
+      <div class="lock-note">Month-to-month, no contract, cancel anytime. Your charter rate <b>never goes up</b>.</div>
+      <div class="lock-note first30"><b>First 30 charter practices:</b> a personal setup call and hands-on help from Darren and Brian until you're up and running.</div>
     </div>
 
     <div class="get-grid">
       <div class="get-card">
-        <h3>Try it free for 2 weeks</h3>
-        <p>A quick-start version, easy to install. Card required to start; <span class="price">no charge if you cancel</span> before the trial ends.</p>
-        <a href="#signup" class="btn btn-primary btn-block" data-cta="pricing_start_trial">Start free trial</a>
+        <h3>$1 for your first 13 days</h3>
+        <p>Run it on your real schedule for thirteen days. We set it up with you on a call and stay with you the whole way. <span class="price">Not for you? You've spent a dollar.</span></p>
+        <a href="#signup" class="btn btn-primary btn-block" data-cta="pricing_start_13day">Start for $1</a>
       </div>
       <div class="get-card">
         <h3>Get the full product</h3>
-        <p>The complete system, month-to-month. <span class="price">No contract</span>, cancel anytime — and your founding rate is locked in.</p>
+        <p>The complete system, month-to-month. <span class="price">No contract</span>, cancel anytime — and your charter rate is locked in.</p>
         <a href="#signup" class="btn btn-ghost btn-block" data-cta="pricing_get_started" style="border-color:rgba(255,255,255,.3);color:#fff;">Get started</a>
       </div>
     </div>
@@ -502,14 +661,21 @@
   <div class="wrap">
     <div style="text-align:center;max-width:600px;margin:0 auto;">
       <div class="eyebrow" style="color:var(--blue);">Claim your spot</div>
-      <h2 class="sec">Reserve your founding price.</h2>
-      <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll reach out within 24 hours to get you set up and lock your rate.</p>
+      <h2 class="sec">Reserve your Charter Practice Rate.</h2>
+      <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll call you within 24 hours. We set everything up with you, and the first 30 charter practices get us hands-on until it's running smoothly in your office.</p>
     </div>
     <div class="form-card">
       <div id="form-wrap">
-        <div class="form-title">Claim your founding spot</div>
-        <div class="form-sub">No commitment to talk. We'll confirm fit and walk you through setup.</div>
+        <div class="form-title">Claim a charter spot</div>
+        <div class="form-sub">No commitment. A real person calls you, confirms fit, and sets it up with you. Prefer to talk now? Call Brian at <a href="tel:+13852440314" data-cta="form_call" style="color:var(--blue);font-weight:700;white-space:nowrap">(385) 244-0314</a>.</div>
         <div class="fg"><label>Practice name</label><input type="text" id="practice" placeholder="Smile Dental Group"></div>
+        <div class="fg"><label>Is your practice part of a DSO?</label>
+          <select id="dso_yn" onchange="document.getElementById('dso-fields').style.display=this.value==='Yes'?'grid':'none'"><option value="No" selected>No — independent practice</option><option value="Yes">Yes — part of a DSO</option></select>
+        </div>
+        <div class="frow" id="dso-fields" style="display:none">
+          <div class="fg"><label>DSO name</label><input type="text" id="dso_name" placeholder="Bright Smiles Partners"></div>
+          <div class="fg"><label>Number of locations</label><input type="number" id="dso_locations" min="1" placeholder="12"></div>
+        </div>
         <div class="frow">
           <div class="fg"><label>First name</label><input type="text" id="fname" placeholder="Darren"></div>
           <div class="fg"><label>Last name</label><input type="text" id="lname" placeholder="Kaberna"></div>
@@ -523,13 +689,13 @@
           <select id="ops"><option value="" disabled selected>Select range</option><option>1–3</option><option>4–6</option><option>7–10</option><option>11+</option></select>
         </div>
         <div class="fg"><label>Anything else? (optional)</label><textarea id="notes" rows="2" placeholder="Current verification process, biggest pain point, etc."></textarea></div>
-        <button class="form-submit" onclick="submitForm()">Reserve my founding spot →</button>
+        <button class="form-submit" onclick="submitForm()">Reserve my charter spot →</button>
         <div class="form-note">No commitment required. We'll talk through your practice before any setup.</div>
       </div>
       <div class="success-msg" id="success">
         <div class="ico">✅</div>
         <h3>You're on the list!</h3>
-        <p>We'll reach out within 24 hours to get you set up and lock your founding rate.<br><br>— Darren &amp; Brian, InstantVerify AI</p>
+        <p>We'll reach out within 24 hours to get you set up and lock your charter rate.<br><br>— Darren &amp; Brian, InstantVerify AI</p>
       </div>
     </div>
   </div>
@@ -542,9 +708,10 @@
     <a href="/terms-of-service/">Terms of Service</a>
     <a href="/patient-data/">How We Handle Patient Data</a>
     <a href="https://instantverify-ai.ghost.io" target="_blank" rel="noopener">Blog</a>
+    <a href="tel:+13852440314">(385) 244-0314</a>
     <a href="mailto:Support@InstantVerifyAI.com">Contact</a>
   </nav>
-  <div class="footer-copy">© 2026 InstantVerify AI · Colorado Springs, CO · Verification runs on your practice's own computers.</div>
+  <div class="footer-copy">© 2026 InstantVerify AI · Colorado Springs, CO · <a style="color:inherit" href="tel:+13852440314">(385) 244-0314</a> · Verification runs on your practice's own computers.<br>All product, company, and carrier names are trademarks of their respective owners. Their use does not imply affiliation or endorsement.</div>
 </footer>
 
 <script>
@@ -601,10 +768,10 @@
     if (idx >= TIERS.length) {
       document.getElementById('ptNum').textContent = '$' + REGULAR_PRICE;
       document.querySelector('.pt-tag').textContent = 'Regular pricing';
-      document.querySelector('.price-full').textContent = 'The founders special has closed.';
+      document.querySelector('.price-full').textContent = 'The Charter Practice Rate has closed.';
       document.getElementById('cNum').textContent = '0';
       document.getElementById('cWord').textContent = 'spots';
-      document.getElementById('heroCounter').innerHTML = 'The founders special has closed — now $' + REGULAR_PRICE + '/mo.';
+      document.getElementById('heroCounter').innerHTML = 'The Charter Practice Rate has closed — now $' + REGULAR_PRICE + '/mo.';
       return;
     }
     const cur = TIERS[idx];
@@ -614,7 +781,7 @@
     document.getElementById('cNum').textContent = left;
     document.getElementById('cWord').textContent = (left === 1 ? 'spot' : 'spots');
     document.getElementById('heroCounter').innerHTML =
-      `Founders special — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life.`;
+      `Charter Practice Rate — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life.`;
   }
 
   function refreshCount(){ getSold().then(renderPricing); }
@@ -636,11 +803,21 @@
     v.addEventListener('ended', () => { if (!done) { done = true; send('video_complete', { video_percent: 100 }); } });
   })();
 
+  /* ---- Testimonials: load YouTube only when clicked ---- */
+  document.querySelectorAll('.yt').forEach(btn => btn.addEventListener('click', () => {
+    const id = btn.dataset.yt;
+    btn.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" title="InstantVerify testimonial" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    if (typeof gtag === 'function') gtag('event', 'video_start', { video_title: 'testimonial ' + id, video_provider: 'youtube' });
+  }, { once: true }));
+
   /* ---- Lead capture (posts to Google Apps Script) ---- */
   const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
   async function submitForm() {
     const fields = ['practice','fname','lname','email','phone','pms','ops'];
-    const data = { notes: document.getElementById('notes')?.value?.trim() || "" };
+    const data = { notes: document.getElementById('notes')?.value?.trim() || "",
+                   dso: document.getElementById('dso_yn').value,
+                   dso_name: document.getElementById('dso_name').value.trim(),
+                   dso_locations: document.getElementById('dso_locations').value.trim() };
     let valid = true;
     fields.forEach(id => {
       const el = document.getElementById(id);
@@ -656,7 +833,7 @@
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('success').classList.add('show');
       // Analytics: conversion only, no personal details (names/emails/phone never sent)
-      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'founding_signup', practice_software: data.pms, operatories: data.ops });
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'charter_signup', practice_software: data.pms, operatories: data.ops });
       document.getElementById('signup').scrollIntoView({ behavior:'smooth' });
     } catch (err) {
       console.error('Lead submission error:', err);
@@ -665,5 +842,6 @@
     }
   }
 </script>
+<script src="https://iv-site-agent.darren-4ad.workers.dev/widget.js" defer></script>
 </body>
 </html>
