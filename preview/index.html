@@ -395,6 +395,9 @@
   .nav-cta{white-space:nowrap;}
   @media(max-width:520px){.nav-right{gap:10px !important;}.nav-phone{width:38px;height:38px;}}
   @media(max-width:380px){nav.topnav{padding:0 12px !important;}.nav-logo{font-size:.9rem !important;}.nav-right{gap:8px !important;}.nav-cta{font-size:.85rem !important;padding:8px 11px !important;}.nav-phone{width:36px;height:36px;}}
+  .story{max-width:900px;margin:30px auto 0;}
+  .story .story-h{font-weight:700;color:var(--navy);font-size:1.1rem;margin:0 0 12px;}
+  .story figcaption{margin-top:10px;font-size:.95rem;color:var(--gray);}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -440,6 +443,14 @@
       <p class="punch">It works the way a great office already thinks.</p>
       <div class="sig">— Darren Kaberna, Founder &amp; CEO<br><span class="sig2">with Dr. Brian Johnston, Co-Founder: a decade+ living in dental tech, hearing the same broken verification story everywhere.</span></div>
     </div>
+    <figure class="story">
+      <p class="story-h">Hear the story: why we built InstantVerify, and why it matters for your office.</p>
+      <button class="yt" data-yt="jknA1C7dXvE" data-title="InstantVerify story" data-cta="about_story_video" aria-label="Play the InstantVerify story video">
+        <img src="https://i.ytimg.com/vi/jknA1C7dXvE/maxresdefault.jpg" alt="The InstantVerify story, told on camera" width="1280" height="720" loading="lazy">
+        <span class="play" aria-hidden="true"></span>
+      </button>
+      <figcaption>The InstantVerify story · 9 min</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -816,7 +827,7 @@
   document.querySelectorAll('.yt').forEach(btn => btn.addEventListener('click', () => {
     const id = btn.dataset.yt;
     btn.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" title="InstantVerify testimonial" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-    if (typeof gtag === 'function') gtag('event', 'video_start', { video_title: 'testimonial ' + id, video_provider: 'youtube' });
+    if (typeof gtag === 'function') gtag('event', 'video_start', { video_title: btn.dataset.title || ('testimonial ' + id), video_provider: 'youtube' });
   }, { once: true }));
 
   /* ---- Lead capture (posts to Google Apps Script) ---- */
