@@ -1,0 +1,35 @@
+# Rebuilds /blog/ from the posts published on Ghost (see _tools/build_blog.py).
+# Editions publish Tuesdays 9:00 AM Mountain: 15:00 UTC in summer (MDT), 16:00 UTC in winter (MST).
+name: Build blog
+on:
+  schedule:
+    - cron: "12 15 * * 2"
+    - cron: "12 16 * * 2"
+    - cron: "30 13 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: build-blog
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build blog pages from Ghost
+        run: python3 _tools/build_blog.py
+      - name: Commit and publish if anything changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard blog)" ]; then
+            echo "No blog changes."; exit 0
+          fi
+          git config user.name "instantverify-blog-bot"
+          git config user.email "support@instantverifyai.com"
+          git add blog sitemap.xml
+          git commit -m "Blog: refresh from Ghost"
+          git push
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true

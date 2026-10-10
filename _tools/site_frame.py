@@ -55,6 +55,7 @@ def ld_json(old):
     return "\n".join(re.findall(r'<script type="application/ld\+json">.*?</script>', old, re.S))
 
 def frame(old, body_html, extra_css="", noindex=False):
+    """`old` is a page (or just a <head>...</head> string) whose title/description/canonical/social tags are kept."""
     meta = page_meta(old)
     if noindex and 'name="robots"' not in meta:
         meta += '\n<meta name="robots" content="noindex">'
