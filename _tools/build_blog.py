@@ -144,6 +144,7 @@ def build():
                 if p.get("feature_image") else "")
         body = (hero + '\n\n<main class="doc">\n  <div class="wrap">\n    <a class="back-link" href="/blog/">← All posts</a>\n    '
                 + feat + (p.get("html") or "") + '\n    <div class="post-cta"><a class="btn btn-primary" href="/#signup" data-cta="blog_claim_rate">Claim your Charter Practice Rate</a>'
+                '<a class="btn btn-ghost" href="https://calendly.com/drbrianj" target="_blank" rel="noopener" data-cta="blog_calendar">Jump on Dr. J&rsquo;s calendar</a>'
                 '<a class="btn btn-ghost" href="/why-us/" data-cta="blog_why_us">Why InstantVerify</a></div>\n    ' + SUBSCRIBE
                 + "\n  </div>\n</main>\n" + SUBSCRIBE_JS)
         write(f"blog/{p['slug']}/index.html", sf.frame(head, body, BLOG_CSS))
