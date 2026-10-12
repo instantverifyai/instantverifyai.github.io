@@ -150,7 +150,39 @@ def not_found():
     open(path, "w").write(frame(old, body, noindex=True))
     print("framed", path)
 
+def contact():
+    path = "contact/index.html"
+    head = ("<head>\n<title>Contact | InstantVerify AI</title>\n"
+            '<meta name="description" content="Talk with Dr. J at InstantVerify AI: call (385) 244-0314, book a time on his calendar, or email support.">\n'
+            '<link rel="canonical" href="https://instantverifyai.com/contact/">\n</head>')
+    body = hero("Contact", "Talk with Dr. J.", "Questions about your office, your software, or your carriers? Reach out whichever way is easiest.")
+    body += """
+
+<main class="doc">
+  <div class="wrap">
+    <div class="contact-grid">
+      <a class="ccard" href="tel:+13852440314" data-cta="contact_call"><div class="ck">Call</div><div class="cv">(385) 244-0314</div><div class="cd">Dr. J answers or calls you back.</div></a>
+      <a class="ccard" href="https://calendly.com/drbrianj" target="_blank" rel="noopener" data-cta="contact_calendar"><div class="ck">Book a time</div><div class="cv">Dr. J&rsquo;s calendar</div><div class="cd">Pick any open slot that works for you.</div></a>
+      <div class="ccard"><div class="ck">Email</div><div class="cv">Support@InstantVerifyAI.com</div><div class="cd"><a href="mailto:Support@InstantVerifyAI.com">Open in your email app</a></div></div>
+    </div>
+    <p style="margin-top:28px">Prefer to leave your details? <a href="/#signup">Use the signup form</a> and we&rsquo;ll reach out within 24 hours.</p>
+  </div>
+</main>"""
+    css = """
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .ccard{display:block;background:var(--lgray);border:1px solid var(--rule);border-radius:14px;padding:22px 22px 24px;text-decoration:none;color:inherit;}
+  a.ccard:hover{border-color:var(--teal);}
+  .ccard .ck{font-size:.86rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);}
+  .ccard .cv{font-family:"DM Sans",sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);margin:8px 0 6px;word-break:break-word;}
+  .ccard .cd{font-size:1.05rem;color:#2c3746;}
+"""
+    import os
+    os.makedirs("contact", exist_ok=True)
+    open(path, "w").write(frame(head, body, css))
+    print("framed", path)
+
 if __name__ == "__main__":
+    contact()
     doc_page("privacy-policy/index.html", "Legal")
     doc_page("terms-of-service/index.html", "Legal")
     doc_page("patient-data/index.html", "Patient data")
