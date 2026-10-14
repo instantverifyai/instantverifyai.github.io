@@ -381,6 +381,35 @@
   .fg input,.fg select,.fg textarea{font-size:1.05rem !important;}
   .footer-nav a,footer .footer-nav a{font-size:1.02rem !important;}
   .eyebrow,.fork-k,.fcard .tag,.pt-tag,.c-live{font-size:.86rem !important;}
+
+  /* ROUND 4 (Brian): centered headings, left-aligned body text; type scale for desktop / iPhone / Android */
+  .hero .wrap,.why-hero .wrap{text-align:center;}
+  .hero .eyebrow,.hero h1,.hero-sub,.hero-counter,.why-hero h1,.why-hero p.lead,.why-hero .post-meta{margin-left:auto;margin-right:auto;}
+  .hero-sub{max-width:760px;}
+  .hero-actions{justify-content:center;}
+  .eyebrow,h2.sec,.chapter .num,.portals h3.ph,.portals p.pl,.pask,.psoon,.ptm,.report-cta,.vcap,.explainer .vcap,.story .story-h,.story figcaption,.pms h2,.pms .names,.pms .fine,.chapter .pull,.chapter .tm{text-align:center;margin-left:auto;margin-right:auto;}
+  p.lead{text-align:center;margin-left:auto;margin-right:auto;max-width:760px;}
+  p.lead.lead-long{text-align:left;}
+  .stat-row{justify-content:center;text-align:center;}
+  .stat{text-align:center;}
+  .psoon{display:flex;justify-content:center;flex-wrap:wrap;}
+  .pgrid,.counter-box,.get-grid,.blog-list,.contact-grid{margin-left:auto !important;margin-right:auto !important;}
+  .portals p.pl,.ptm{max-width:760px;}
+  .chapter h2.sec,.chapter p,.chapter ul.facts{margin-left:auto;margin-right:auto;}
+  .chapter p,.chapter ul.facts{max-width:760px;}
+  .chapter .pull{max-width:760px;}
+  /* type scale: one clear hierarchy, sized for each screen */
+  h1{font-size:clamp(2.4rem,5.4vw,4.3rem) !important;}
+  h2.sec{font-size:clamp(1.85rem,3.5vw,2.75rem) !important;}
+  p.lead{font-size:clamp(1.12rem,1.35vw,1.3rem) !important;line-height:1.65;}
+  .eyebrow{font-size:.9rem !important;letter-spacing:.12em;}
+  @media(max-width:640px){
+    h1{font-size:2.3rem !important;line-height:1.08;}
+    h2.sec{font-size:1.75rem !important;}
+    p.lead{font-size:1.1rem !important;}
+    .hero-actions{flex-direction:column;align-items:stretch;}
+    .stat-row{gap:18px;}
+  }
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
