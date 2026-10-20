@@ -448,6 +448,8 @@
     .hero-actions{flex-direction:column;align-items:stretch;}
     .stat-row{gap:18px;}
   }
+  .report-shot{margin-left:auto !important;margin-right:auto !important;}
+  .report-cap,.report-cta{text-align:center;justify-content:center;}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -712,14 +714,6 @@
       <div class="lock-note"><b>Everything included.</b> The complete system, month-to-month. No contract, cancel anytime, and your charter rate is locked in.</div>
       <a href="#signup" class="btn btn-primary" data-cta="pricing_get_started" style="margin-top:18px;display:inline-block">Get started at $250/mo</a>
     </div>
-
-    <div class="get-grid" style="grid-template-columns:1fr;max-width:620px">
-      <div class="get-card">
-        <h3>$1 for your first 13 days</h3>
-        <p>Run it on your real schedule for thirteen days. We set it up with you on a call and stay with you the whole way. <span class="price">Not for you? You've spent a dollar.</span></p>
-        <a href="#signup" class="btn btn-primary btn-block" data-cta="pricing_start_13day">Start for $1</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -729,12 +723,12 @@
     <div style="text-align:center;max-width:600px;margin:0 auto;">
       <div class="eyebrow" style="color:var(--blue);">Claim your spot</div>
       <h2 class="sec">Reserve your Charter Practice Rate.</h2>
-      <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll call you within 24 hours. We set everything up with you, and the first 30 charter practices get us hands-on until it's running smoothly in your office.</p>
+      <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll call you within 24 hours to get you set up.</p>
     </div>
     <div class="form-card">
       <div id="form-wrap">
         <div class="form-title">Claim a charter spot</div>
-        <div class="form-sub">No commitment. A real person calls you, confirms fit, and sets it up with you. Prefer to talk now? Call Dr. J at <a href="tel:+13852440314" data-cta="form_call" style="color:var(--blue);font-weight:700;white-space:nowrap">(385) 244-0314</a>, or <a href="https://calendly.com/drbrianj" target="_blank" rel="noopener" data-cta="form_calendar" style="color:var(--blue);font-weight:700">jump on Dr. J’s calendar</a>.</div>
+        <div class="form-sub">No commitment. A real person calls you, confirms fit, and sets it up with you. Prefer to talk now? Call Dr. J at <a href="tel:+13852440314" data-cta="form_call" style="color:var(--teal);font-weight:700;white-space:nowrap">(385) 244-0314</a>, or <a href="https://calendly.com/drbrianj" target="_blank" rel="noopener" data-cta="form_calendar" style="color:var(--teal);font-weight:700">jump on Dr. J’s calendar</a>.</div>
         <div class="fg"><label>Practice name</label><input type="text" id="practice" placeholder="Smile Dental Group"></div>
         <div class="fg"><label>Is your practice part of a DSO?</label>
           <select id="dso_yn" onchange="document.getElementById('dso-fields').style.display=this.value==='Yes'?'grid':'none'"><option value="No" selected>No — independent practice</option><option value="Yes">Yes — part of a DSO</option></select>
