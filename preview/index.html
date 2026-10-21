@@ -447,7 +447,10 @@
   .nav-logo .logo-name span,.footer-logo .logo-name span{color:var(--teal) !important;}
   .footer-logo .logo-mark{width:26px;height:26px;}
   @media(max-width:640px){.logo-mark{width:24px;height:24px;}.nav-logo{gap:7px;}}
-  @media(max-width:380px){.nav-logo .logo-mark{width:18px;height:18px;}.nav-logo{gap:5px;font-size:.82rem !important;}.nav-right{gap:6px !important;}.nav-cta{padding:8px 9px !important;font-size:.8rem !important;}.nav-phone{width:34px !important;height:34px !important;}nav.topnav{padding:0 10px !important;}}
+  @media(max-width:420px){.nav-logo .logo-mark{width:18px;height:18px;}.nav-logo{gap:5px;font-size:.82rem !important;}.nav-right{gap:6px !important;}.nav-cta{padding:8px 9px !important;font-size:.8rem !important;}.nav-phone{width:34px !important;height:34px !important;}nav.topnav{padding:0 10px !important;}}
+  .lookup{background:#fff;}
+  .lookup-shot img{display:block;width:100%;height:auto;}
+  .lookup-cap::after,.lookup-cap:after{content:none !important;display:none !important;}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -638,6 +641,20 @@
     </div>
   </div>
 </section>
+
+<!-- SINGLE-PATIENT LOOKUP -->
+<section class="pad lookup" id="lookup">
+  <div class="wrap">
+    <div class="eyebrow">Walk-ins and surprises</div>
+    <h2 class="sec">New insurance at the front desk? Look it up on the spot.</h2>
+    <p class="lead">A patient says their insurance changed, or a new patient walks in and hands you their card. Enter that one patient and InstantVerify checks the carrier right then, usually in about 30 seconds or less.</p>
+    <figure class="report-shot lookup-shot">
+      <a href="/lookup-one-patient.png" target="_blank" rel="noopener" data-cta="lookup_image"><img src="/lookup-one-patient.png" alt="InstantVerify office console: the Look up one patient screen, with fields for the insurance website, patient name, date of birth, member ID, subscriber ZIP, provider, and procedure codes" width="893" height="577" loading="lazy"></a>
+    </figure>
+    <p class="report-cap lookup-cap">The office console's "Look up one patient" screen. You get the same full report the morning run produces, and the patient's details stay on your computer.</p>
+  </div>
+</section>
+
 
 <!-- TESTIMONIALS -->
 <section class="pad testimonials" id="testimonials">
