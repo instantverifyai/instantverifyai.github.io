@@ -423,6 +423,13 @@
     .hero-actions{flex-direction:column;align-items:stretch;}
     .stat-row{gap:18px;}
   }
+  .nav-logo,.footer-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;}
+  .logo-mark{width:28px;height:28px;flex:none;}
+  .nav-logo .logo-name,.footer-logo .logo-name{color:#fff !important;}
+  .nav-logo .logo-name span,.footer-logo .logo-name span{color:var(--teal) !important;}
+  .footer-logo .logo-mark{width:26px;height:26px;}
+  @media(max-width:640px){.logo-mark{width:24px;height:24px;}.nav-logo{gap:7px;}}
+  @media(max-width:380px){.nav-logo .logo-mark{width:18px;height:18px;}.nav-logo{gap:5px;font-size:.82rem !important;}.nav-right{gap:6px !important;}.nav-cta{padding:8px 9px !important;font-size:.8rem !important;}.nav-phone{width:34px !important;height:34px !important;}nav.topnav{padding:0 10px !important;}}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -459,7 +466,7 @@
 </head>
 <body>
 <nav class="topnav">
-  <a href="/" class="nav-logo" style="text-decoration:none">Instant<span>Verify</span> AI</a>
+  <a href="/" class="nav-logo" style="text-decoration:none"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
   <div class="nav-right">
     <a href="/why-us/" class="nav-link">Why us</a>
     <a href="/#start" class="nav-link">Pricing</a>
@@ -565,7 +572,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">Instant<span>Verify</span> AI</div>
+  <div class="footer-logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></div>
   <nav class="footer-nav">
     <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/terms-of-service/">Terms of Service</a>
