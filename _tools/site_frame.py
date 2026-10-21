@@ -163,7 +163,7 @@ def contact():
     <div class="contact-grid">
       <a class="ccard" href="tel:+13852440314" data-cta="contact_call"><div class="ck">Call</div><div class="cv">(385) 244-0314</div><div class="cd">Dr. J answers or calls you back.</div></a>
       <a class="ccard" href="https://calendly.com/drbrianj" target="_blank" rel="noopener" data-cta="contact_calendar"><div class="ck">Book a time</div><div class="cv">Dr. J&rsquo;s calendar</div><div class="cd">Pick any open slot that works for you.</div></a>
-      <div class="ccard"><div class="ck">Email</div><div class="cv">Support@InstantVerifyAI.com</div><div class="cd"><a href="mailto:Support@InstantVerifyAI.com">Open in your email app</a></div></div>
+      <div class="ccard"><div class="ck">Email</div><div class="cv" style="font-size:1.05rem;word-break:normal;overflow-wrap:anywhere">Support@<wbr>InstantVerifyAI.com</div><div class="cd"><a href="mailto:Support@InstantVerifyAI.com">Open in your email app</a></div></div>
     </div>
     <p style="margin-top:28px">Prefer to leave your details? <a href="/#signup">Use the signup form</a> and we&rsquo;ll reach out within 24 hours.</p>
   </div>
