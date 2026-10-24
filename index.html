@@ -460,6 +460,17 @@
   .lookup{background:#fff;}
   .lookup-shot img{display:block;width:100%;height:auto;}
   .lookup-cap::after,.lookup-cap:after{content:none !important;display:none !important;}
+  /* ROUND 6 (Darren) */
+  .zero-fee{color:var(--teal);font-weight:700;white-space:nowrap;}
+  .counter-box{max-width:760px !important;margin-left:auto !important;margin-right:auto !important;text-align:center;}
+  .counter-box .price-today{justify-content:center;}
+  .counter-box .counter-line{justify-content:center;}
+  .pt-tag{white-space:nowrap;}
+  .pt-tag .zero-fee{font-weight:700;}
+  @media(min-width:760px){.hero-counter{white-space:nowrap;max-width:none !important;}}
+  @media(max-width:759px){.pt-tag{white-space:normal;}}
+  .br-desk{display:none;}
+  @media(min-width:900px){.br-desk{display:inline;}}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -490,7 +501,7 @@
       <a href="#start" class="btn btn-primary" data-cta="hero_claim_spot">Claim your Charter Practice Rate</a>
       <a href="#report" class="btn btn-ghost" data-cta="hero_see_report">See a real report</a>
     </div>
-    <div class="hero-counter" id="heroCounter">Charter Practice Rate — $250/mo locked for life while spots remain.</div>
+    <div class="hero-counter" id="heroCounter">Charter Practice Rate — $250/mo, locked for life · <span class="zero-fee">$0 for setup &amp; customer support</span></div>
   </div>
 </header>
 
@@ -654,7 +665,7 @@
 <section class="pad lookup" id="lookup">
   <div class="wrap">
     <div class="eyebrow">Walk-ins and surprises</div>
-    <h2 class="sec">New insurance at the front desk? Look it up on the spot.</h2>
+    <h2 class="sec">New insurance at the front desk?<br class="br-desk"> Look it up on the spot.</h2>
     <p class="lead">A patient says their insurance changed, or a new patient walks in and hands you their card. Enter that one patient and InstantVerify checks the carrier right then, usually in about 30 seconds or less.</p>
     <figure class="report-shot lookup-shot">
       <a href="/lookup-one-patient.png" target="_blank" rel="noopener" data-cta="lookup_image"><img src="/lookup-one-patient.png" alt="InstantVerify office console: the Look up one patient screen, with fields for the insurance website, patient name, date of birth, member ID, subscriber ZIP, provider, and procedure codes" width="893" height="577" loading="lazy"></a>
@@ -729,7 +740,7 @@
     <div class="counter-box">
       <div class="price-today">
         <span class="pt-num" id="ptNum">$250</span><span class="pt-per">/mo</span>
-        <span class="pt-tag">Charter Practice Rate · locked for life</span>
+        <span class="pt-tag">Charter Practice Rate · locked for life · <span class="zero-fee">$0 for setup &amp; customer support</span></span>
       </div>
       <div class="price-full">Regular price <s id="pfNum">$500/mo</s> once the remaining spots are gone.</div>
       <div class="counter-line"><span class="c-dot"></span> <b id="cNum">&mdash;</b> <span id="cWord">spots</span> remaining at this rate <span class="c-live">updating live</span></div>
@@ -865,7 +876,7 @@
     document.getElementById('cNum').textContent = left;
     document.getElementById('cWord').textContent = (left === 1 ? 'spot' : 'spots');
     document.getElementById('heroCounter').innerHTML =
-      `Charter Practice Rate — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life.`;
+      `Charter Practice Rate — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life · <span class="zero-fee">&#36;0 for setup &amp; customer support</span>`;
   }
 
   function refreshCount(){ getSold().then(renderPricing); }
