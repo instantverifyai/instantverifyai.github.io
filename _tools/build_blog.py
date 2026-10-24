@@ -57,6 +57,8 @@ BLOG_CSS = """
   .post-cta{margin-top:36px;padding-top:28px;border-top:1px solid var(--rule);display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
   .post-cta .btn-ghost{color:var(--navy);border-color:var(--rule);}
   .back-link{display:inline-block;margin-bottom:22px;font-weight:600;color:var(--blue,#1f6feb);text-decoration:none;}
+  .blog-lead{max-width:none !important;}
+  @media(min-width:1100px){.blog-lead{white-space:nowrap;}}
   @media(max-width:640px){.subscribe-box{padding:24px 20px;}}
 """
 
@@ -120,6 +122,7 @@ def build():
       </a>''')
     body = sf.hero("The InstantVerify blog", "Every patient, every procedure, every insight.",
                    "A new edition every Tuesday on dental insurance verification, estimates, and front desk life.")
+    body = body.replace('<p class="lead">A new edition', '<p class="lead blog-lead">A new edition', 1)
     body += ('\n\n<main class="doc">\n  <div class="wrap blog-wrap">\n    <div class="blog-list">\n' + "\n".join(cards)
              + "\n    </div>\n    <div style=\"max-width:820px\">" + SUBSCRIBE + "</div>\n  </div>\n</main>\n" + SUBSCRIBE_JS)
     head = meta_block("Blog | InstantVerify AI", "Weekly articles on dental insurance verification, accurate estimates, and running a calmer front desk.",

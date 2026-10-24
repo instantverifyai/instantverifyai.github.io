@@ -427,6 +427,9 @@
   .footer-logo .logo-mark{width:26px;height:26px;}
   @media(max-width:640px){.logo-mark{width:24px;height:24px;}.nav-logo{gap:7px;}}
   @media(max-width:420px){.nav-logo .logo-mark{width:18px;height:18px;}.nav-logo{gap:5px;font-size:.82rem !important;}.nav-right{gap:6px !important;}.nav-cta{padding:8px 9px !important;font-size:.8rem !important;}.nav-phone{width:34px !important;height:34px !important;}nav.topnav{padding:0 10px !important;}}
+  /* ROUND 6 (Darren): one-line chapter headings on laptop/desktop screens, same font size */
+  @media(min-width:1360px){.chapter h2.sec{max-width:none !important;white-space:nowrap;}}
+  .chapter ul.facts{margin-left:auto !important;margin-right:auto !important;}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -498,6 +501,8 @@
   .post-cta{margin-top:36px;padding-top:28px;border-top:1px solid var(--rule);display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
   .post-cta .btn-ghost{color:var(--navy);border-color:var(--rule);}
   .back-link{display:inline-block;margin-bottom:22px;font-weight:600;color:var(--blue,#1f6feb);text-decoration:none;}
+  .blog-lead{max-width:none !important;}
+  @media(min-width:1100px){.blog-lead{white-space:nowrap;}}
   @media(max-width:640px){.subscribe-box{padding:24px 20px;}}
 
 </style>
