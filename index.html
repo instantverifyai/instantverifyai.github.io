@@ -471,6 +471,11 @@
   @media(max-width:759px){.pt-tag{white-space:normal;}}
   .br-desk{display:none;}
   @media(min-width:900px){.br-desk{display:inline;}}
+  /* ROUND 7 (Darren): text under every heading is left-aligned in a centered column (like "Not a mockup. An actual report.") */
+  p.lead,.hero-sub,.portals p.pl,.pms .fine,.why-hero p.lead,.page-hero p.lead{text-align:left !important;width:fit-content;max-width:760px;margin-left:auto !important;margin-right:auto !important;}
+  .counter-box .lock-note{text-align:left;}
+  @media(min-width:900px){.pms .fine{max-width:none !important;white-space:nowrap;}}
+  @media(min-width:760px){.signup-head h2.sec{white-space:nowrap;}}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -721,12 +726,12 @@
 </section>
 
 <!-- PMS -->
-<div class="pms">
+<div class="pms" id="works">
   <div class="wrap">
     <div class="eyebrow">Works with what you already run</div>
     <h2>No rip-and-replace. No new logins for your team.</h2>
     <div class="names">We work with most dental software. No integration needed.</div>
-    <div class="fine">InstantVerify installs on your office computer and works alongside the practice software you already use. Not sure about yours? Just ask.</div>
+    <div class="fine">InstantVerify installs on your office computer and works alongside the practice software you already use.<br class="br-desk"> Not sure about yours? Just ask.</div>
   </div>
 </div>
 
@@ -755,7 +760,7 @@
 <!-- SIGNUP -->
 <section class="pad signup" id="signup">
   <div class="wrap">
-    <div style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="signup-head" style="text-align:center;max-width:900px;margin:0 auto;">
       <div class="eyebrow" style="color:var(--blue);">Claim your spot</div>
       <h2 class="sec">Reserve your Charter Practice Rate.</h2>
       <p class="lead" style="margin:0 auto;">Tell us about your practice and we'll call you within 24 hours to get you set up.</p>
