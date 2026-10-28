@@ -435,6 +435,10 @@
   /* ROUND 6 (Darren): one-line chapter headings on laptop/desktop screens, same font size */
   @media(min-width:1360px){.chapter h2.sec{max-width:none !important;white-space:nowrap;}}
   .chapter ul.facts{margin-left:auto !important;margin-right:auto !important;}
+  /* ROUND 7 (Darren): text under every heading is left-aligned in a centered column (like "Not a mockup. An actual report.") */
+  p.lead,.hero-sub,.portals p.pl,.pms .fine,.why-hero p.lead,.page-hero p.lead{text-align:left !important;width:fit-content;max-width:760px;margin-left:auto !important;margin-right:auto !important;}
+  .counter-box .lock-note{text-align:left;}
+  @media(min-width:760px){.signup-head h2.sec{white-space:nowrap;}}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
