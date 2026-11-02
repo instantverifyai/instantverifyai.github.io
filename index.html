@@ -491,7 +491,7 @@
 <body>
 
 <nav class="topnav">
-  <div class="nav-logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></div>
+  <a href="/" class="nav-logo" style="text-decoration:none" aria-label="InstantVerify AI home"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
   <div class="nav-right">
     <a href="/why-us/" class="nav-link">Why us</a>
     <a href="#start" class="nav-link">Pricing</a>
@@ -817,7 +817,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></div>
+  <a href="/" class="footer-logo" style="text-decoration:none" aria-label="InstantVerify AI home"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
   <nav class="footer-nav">
     <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/terms-of-service/">Terms of Service</a>
@@ -957,5 +957,16 @@
   }
 </script>
 <script src="https://iv-site-agent.darren-4ad.workers.dev/widget.js" defer></script>
+<script>
+  // Logo always returns to the top of the homepage; on the homepage itself, scroll up instead of reloading.
+  document.querySelectorAll('a.nav-logo, a.footer-logo').forEach(a => a.addEventListener('click', e => {
+    const home = new URL(a.href, location.href);
+    if (home.pathname === location.pathname) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    }
+  }));
+</script>
 </body>
 </html>
