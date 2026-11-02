@@ -483,6 +483,12 @@
   .founder-card .sig-li{display:inline-flex;color:#0a66c2;line-height:0;}
   .founder-card .sig-li .li-ico{width:18px;height:18px;}
   .founder-card .sig-li:hover{opacity:.8;}
+  /* ROUND 8 (Darren): small label lines are always blue; call / calendar / email links are always green */
+  .eyebrow,.chapter .num,.ccard .ck,.bc-date{color:var(--blue) !important;}
+  .hero .eyebrow,.why-hero .eyebrow,.page-hero .eyebrow,.features .eyebrow,.pricing .eyebrow,.pms .eyebrow,.signup .form-card .eyebrow{color:#7fb3ff !important;}
+  a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
+  .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
+  .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
   .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
