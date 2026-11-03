@@ -1,0 +1,6 @@
+Contact: mailto:support@instantverifyai.com
+Contact: https://instantverifyai.com/contact/
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://instantverifyai.com/.well-known/security.txt
+Policy: https://instantverifyai.com/privacy-policy/
