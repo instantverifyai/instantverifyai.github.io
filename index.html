@@ -489,7 +489,9 @@
   a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
   .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
-  .cta-short{display:none;}
+  /* ROUND 9 (Darren): four testimonial videos as a 2x2 grid */
+@media(min-width:720px){.tgrid{grid-template-columns:repeat(2,1fr);max-width:1000px;margin-left:auto;margin-right:auto;}}
+.cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
 </style>
@@ -721,6 +723,13 @@
         </button>
         <figcaption>Christine Wuerth<br><a class="tlink" href="https://www.hygienebydesign.com" target="_blank" rel="noopener" data-cta="testimonial_link">www.hygienebydesign.com</a></figcaption>
       </figure>
+      <figure class="tcard">
+        <button class="yt" data-yt="q1BCXh5sZDs" data-title="testimonial q1BCXh5sZDs" aria-label="Play testimonial video">
+          <img src="https://i.ytimg.com/vi/q1BCXh5sZDs/maxresdefault.jpg" alt="Dr. Helm talking about InstantVerify in the office" width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption>Dr. Helm</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -734,7 +743,7 @@
       <ul class="trust-points">
         <li>Installs on your practice's own computer. Patient data is read, processed, and stored <b>locally</b> — it never leaves your office network.</li>
         <li>No cloud ingestion of patient data, and no new cloud database of your patients to worry about.</li>
-        <li>The engine is <b>robotic process automation</b> — software doing exactly what a trained front-desk employee does: reading the schedule, logging into portals, writing down what it finds.</li>
+        <li>The engine is <b>robotic process automation</b> — software doing exactly what a trained front-desk employee does: reading the schedule, checking each carrier portal, writing down what it finds.</li>
         <li>No generative AI. No ChatGPT. No patient data sent to any AI service — decisions are made by fixed, deterministic rules.</li>
       </ul>
     </div>
