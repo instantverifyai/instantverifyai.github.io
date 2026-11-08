@@ -107,7 +107,10 @@
   "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What's the difference between eligibility verification and a full benefits breakdown?","acceptedAnswer":{"@type":"Answer","text":"Eligibility verification confirms whether a patient is covered. A full benefits breakdown shows what every procedure will actually cost — coverage percentages, deductibles, frequency limits, waiting periods, and remaining maximums. InstantVerify AI does both, reading every benefit tab of the carrier portal, not just the overview."}},
     {"@type":"Question","name":"Does InstantVerify AI send patient data to the cloud or to AI services?","acceptedAnswer":{"@type":"Answer","text":"No. InstantVerify AI runs on the practice's own computer. Patient information is read, processed, and stored locally and is never sent to InstantVerify's servers or to any AI service. No AI reads or makes decisions about patient data — that work is done with fixed, deterministic rules."}},
-    {"@type":"Question","name":"Which practice management systems does InstantVerify AI work with?","acceptedAnswer":{"@type":"Answer","text":"InstantVerify AI works with most dental practice management software, with no integration project: it installs on the office computer and works alongside the software the practice already uses. Contact us to confirm yours."}}
+    {"@type":"Question","name":"Which practice management systems does InstantVerify AI work with?","acceptedAnswer":{"@type":"Answer","text":"InstantVerify AI works with most dental practice management software, with no integration project: it installs on the office computer and works alongside the software the practice already uses. Contact us to confirm yours."}},
+    {"@type": "Question", "name": "What are the “Commonly quoted codes” on the report?", "acceptedAnswer": {"@type": "Answer", "text": "They’re the codes your office chooses: the procedures you quote patients most often. There’s no limit on how many you add. InstantVerify looks them up for every patient on the schedule, and you can change the list at any time."}},
+    {"@type": "Question", "name": "Where does the wording in the benefit details come from? Why are some codes grouped together?", "acceptedAnswer": {"@type": "Answer", "text": "Straight from the carrier’s portal. InstantVerify doesn’t write, rephrase, or interpret benefit descriptions. Some carriers put several codes under one shared limit. For example, one plan states “four of any prophylaxis procedures within a 12 month period for codes D1110, D1120, D4346, D4355, and D4910.” The report shows exactly what the carrier says. Nothing is made up, and anything that can’t be confirmed is marked as a gap instead of guessed."}},
+    {"@type": "Question", "name": "What does “per-tooth timing” show? Is it from the treatment plan?", "acceptedAnswer": {"@type": "Answer", "text": "No. It comes from the patient’s claim history with the carrier, not from your treatment plan or the day’s schedule. It lists teeth where earlier treatment means the same procedure won’t be covered yet (for example, “Tooth 19 — filling next eligible 5/15/2027”). You see it before a diagnosis, so there are no surprises when you present treatment. The report can include more or less history, whichever your office prefers."}}
   ]
 }
 </script>
@@ -491,6 +494,15 @@
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
   /* ROUND 9 (Darren): four testimonial videos as a 2x2 grid */
 @media(min-width:720px){.tgrid{grid-template-columns:repeat(2,1fr);max-width:1000px;margin-left:auto;margin-right:auto;}}
+/* ROUND 10 (Darren): FAQ */
+.faq h2.sec,.faq .eyebrow{text-align:center;}
+.faq-list{max-width:820px;margin:30px auto 0;}
+.faq-item{border:1px solid var(--rule);border-radius:12px;background:#fff;margin-bottom:14px;}
+.faq-item summary{cursor:pointer;list-style:none;padding:20px 54px 20px 24px;font-weight:600;font-size:1.08rem;color:var(--navy);position:relative;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:400;color:var(--blue);}
+.faq-item[open] summary::after{content:"\2212";}
+.faq-item p{padding:0 24px 22px;color:var(--text);line-height:1.7;text-align:left;}
 .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -778,6 +790,28 @@
       <div class="lock-note first30"><b>First 30 charter practices:</b> a personal setup call and hands-on help from Darren and Brian until you're up and running.</div>
       <div class="lock-note"><b>Everything included.</b> The complete system, month-to-month. No contract, cancel anytime, and your charter rate is locked in.</div>
       <a href="#signup" class="btn btn-primary" data-cta="pricing_get_started" style="margin-top:18px;display:inline-block">Get started at $250/mo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad faq" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Questions offices ask</div>
+    <h2 class="sec">Reading your report.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What are the “Commonly quoted codes” on the report?</summary>
+        <p>They’re the codes your office chooses: the procedures you quote patients most often. There’s no limit on how many you add. InstantVerify looks them up for every patient on the schedule, and you can change the list at any time.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where does the wording in the benefit details come from? Why are some codes grouped together?</summary>
+        <p>Straight from the carrier’s portal. InstantVerify doesn’t write, rephrase, or interpret benefit descriptions. Some carriers put several codes under one shared limit. For example, one plan states “four of any prophylaxis procedures within a 12 month period for codes D1110, D1120, D4346, D4355, and D4910.” The report shows exactly what the carrier says. Nothing is made up, and anything that can’t be confirmed is marked as a gap instead of guessed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does “per-tooth timing” show? Is it from the treatment plan?</summary>
+        <p>No. It comes from the patient’s claim history with the carrier, not from your treatment plan or the day’s schedule. It lists teeth where earlier treatment means the same procedure won’t be covered yet (for example, “Tooth 19 — filling next eligible 5/15/2027”). You see it before a diagnosis, so there are no surprises when you present treatment. The report can include more or less history, whichever your office prefers.</p>
+      </details>
     </div>
   </div>
 </section>
