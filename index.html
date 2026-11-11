@@ -875,38 +875,16 @@
 
 <script>
   /* ============================================================
-     FOUNDING PRICING — CONFIG (edit these two things)
-     1) TIERS: the price ladder. Each tier is {price, seats}.
-     2) COUNTER_ENDPOINT: a URL that returns JSON {"sold": N} —
-        the REAL number of founding members sold so far. Wire it
-        to your Stripe/Sheet count. Leave "" to show the launch
-        state (0 sold). NEVER fake this number.
-     ============================================================ */
-  /* ============================================================
-     FOUNDING PRICING — CONFIG (edit these)
-     1) TIERS: how the founding price steps up as seats fill. Only
-        TODAY's price + spots-left are shown; the full ladder is not.
-     2) REGULAR_PRICE: the normal price, shown as the strike-through
-        contrast ("regular price $X once founding is gone").
-     3) COUNTER_ENDPOINT: a URL returning JSON {"sold": N} — the REAL
-        number of founding members sold. Wire to Stripe/Sheet. Leave
-        "" for the launch state (0 sold). NEVER fake this number.
+     CHARTER PRICING — edit SOLD by hand when a practice signs up.
+     Spots remaining = seats (50) − SOLD. Use the REAL number.
      ============================================================ */
   const TIERS = [
     { price: 250, seats: 50 }   // <-- single founding tier; no ladder shown
   ];
   const REGULAR_PRICE = 500;    // <-- the full/contrast price
-  const COUNTER_ENDPOINT = "https://api.instantverifyai.com/counter";
+  const SOLD = 7;               // <-- charter practices signed so far (updated 2026-11-11)
 
-  // The count comes from our own API (which reads the sheet server-side).
-  async function getSold() {
-    if (!COUNTER_ENDPOINT) return 0;
-    try {
-      const r = await fetch(COUNTER_ENDPOINT, { signal: AbortSignal.timeout(8000) });
-      const d = await r.json();
-      return Math.max(0, parseInt(d && d.sold, 10) || 0);
-    } catch (e) { return 0; }
-  }
+  function getSold() { return Promise.resolve(SOLD); }
 
   function renderPricing(sold) {
     let remaining = sold, idx = 0;
@@ -934,9 +912,7 @@
       `Charter Practice Rate — <b>${left}</b> ${left === 1 ? 'spot' : 'spots'} remaining at $${cur.price}/mo, locked for life · <span class="zero-fee">&#36;0 for setup &amp; customer support</span>`;
   }
 
-  function refreshCount(){ getSold().then(renderPricing); }
-  refreshCount();
-  setInterval(refreshCount, 45000); // auto-updates the live count while the page is open
+  getSold().then(renderPricing);
 
   /* ---- Analytics: CTA clicks + explainer video engagement ---- */
   document.addEventListener('click', e => {
