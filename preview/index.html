@@ -888,25 +888,16 @@
     { price: 250, seats: 50 }   // <-- single founding tier; no ladder shown
   ];
   const REGULAR_PRICE = 500;    // <-- the full/contrast price
-  const COUNTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbx7G60H2TFeD1DI0EmEpvNClP2K6-Xspxb4_hbnjujNPAz0R0nfnBjWOVAdz0r4JeLwUQ/exec";
+  const COUNTER_ENDPOINT = "https://api.instantverifyai.com/counter";
 
-  // Apps Script web apps don't reliably send CORS headers, so we load the
-  // count via JSONP (a <script> callback) rather than fetch(). The counter
-  // script returns wrapped output when called with ?callback=.
-  let _cbSeq = 0;
-  function getSold() {
-    return new Promise((resolve) => {
-      if (!COUNTER_ENDPOINT) { resolve(0); return; }
-      const cb = 'ivCount' + (++_cbSeq);
-      const s = document.createElement('script');
-      let done = false;
-      const cleanup = () => { try { delete window[cb]; } catch (e) { window[cb] = undefined; } if (s.parentNode) s.parentNode.removeChild(s); };
-      window[cb] = (data) => { done = true; resolve(Math.max(0, parseInt(data && data.sold, 10) || 0)); cleanup(); };
-      s.onerror = () => { if (!done) { resolve(0); cleanup(); } };
-      s.src = COUNTER_ENDPOINT + (COUNTER_ENDPOINT.indexOf('?') === -1 ? '?' : '&') + 'callback=' + cb;
-      document.body.appendChild(s);
-      setTimeout(() => { if (!done) { resolve(0); cleanup(); } }, 8000);
-    });
+  // The count comes from our own API (which reads the sheet server-side).
+  async function getSold() {
+    if (!COUNTER_ENDPOINT) return 0;
+    try {
+      const r = await fetch(COUNTER_ENDPOINT, { signal: AbortSignal.timeout(8000) });
+      const d = await r.json();
+      return Math.max(0, parseInt(d && d.sold, 10) || 0);
+    } catch (e) { return 0; }
   }
 
   function renderPricing(sold) {
@@ -962,7 +953,7 @@
   }, { once: true }));
 
   /* ---- Lead capture (posts to Google Apps Script) ---- */
-  const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
+  const SERVER_URL = "https://api.instantverifyai.com/signup";
   async function submitForm() {
     alert('Preview only — the signup form is disabled on this page.'); return;
     const fields = ['practice','fname','lname','email','phone','pms','ops'];
@@ -981,7 +972,8 @@
     const original = btn.textContent;
     btn.textContent = 'Submitting...'; btn.disabled = true;
     try {
-      await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data), redirect:'follow' });
+      const resp = await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data) });
+      if (!resp.ok) throw new Error('signup ' + resp.status);
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('success').classList.add('show');
       // Analytics: conversion only, no personal details (names/emails/phone never sent)
@@ -994,7 +986,7 @@
     }
   }
 </script>
-<script src="https://iv-site-agent.darren-4ad.workers.dev/widget.js" data-bottom="52" defer></script>
+<script src="https://api.instantverifyai.com/widget.js" data-bottom="52" defer></script>
 <script>
   // Logo always returns to the top of the homepage; on the homepage itself, scroll up instead of reloading.
   document.querySelectorAll('a.nav-logo, a.footer-logo').forEach(a => a.addEventListener('click', e => {
