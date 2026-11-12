@@ -7,7 +7,7 @@ Run from the repo root:  python3 _tools/site_frame.py
 Originals are read from git (the pre-frame version at FRAME_BASE_REV) so re-runs are idempotent.
 (_tools/ is not published: GitHub Pages' Jekyll skips folders that start with "_".)
 """
-import re, subprocess, sys
+import os, re, subprocess, sys
 
 FRAME_BASE_REV = "8ff8dbc"   # last commit before the frame was applied to these pages
 
@@ -135,6 +135,9 @@ def sample_report():
     body = body.replace("<p>Lock founding pricing while it's open.</p>", "<p>Claim the Charter Practice Rate while spots remain.</p>")
     body = body.replace('<a href="/#start" class="btn">See founding pricing →</a>', '<a href="/#signup" class="btn" data-cta="report_claim_rate">Claim your Charter Practice Rate →</a>')
     css = "\n  /* Sample report (legacy styles, scoped) */\n  .sr{padding-top:110px !important;}\n  .sr h1,.sr h2{font-family:\"DM Sans\",sans-serif !important;font-weight:800 !important;letter-spacing:-.02em !important;}\n  @media(max-width:640px){.sr{padding-top:88px !important;}}\n" + scope_css(legacy, ".sr")
+    # Sections added after the frame base (kept in _tools so rebuilds don't drop them)
+    more = open(os.path.join(os.path.dirname(__file__), "sample_report_more.html")).read()
+    body = body.replace("  <!-- HONESTY -->", more + "  <!-- HONESTY -->", 1)
     open(path, "w").write(frame(old, '<div class="sr">' + body.strip() + "</div>", css))
     print("framed", path)
 
