@@ -27,7 +27,7 @@ base_head = PAGE_META.sub("", base_head)
 base_head = re.sub(r"\n{3,}", "\n\n", base_head)
 nav = base[base.index('<nav class="topnav">'):base.index("</nav>", base.index('<nav class="topnav">')) + 6]
 footer = base[base.index("<footer>"):base.index("</footer>") + 9]
-widget = re.search(r'<script src="https://iv-site-agent[^>]*></script>', base).group(0)
+widget = re.search(r'<script src="https://api\.instantverifyai\.com/widget\.js"[^>]*></script>', base).group(0)
 
 DOC_CSS = """
   /* Secondary pages (site frame) */
