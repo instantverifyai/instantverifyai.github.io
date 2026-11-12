@@ -937,7 +937,7 @@
   }, { once: true }));
 
   /* ---- Lead capture (posts to Google Apps Script) ---- */
-  const SERVER_URL = "https://script.google.com/macros/s/AKfycbzn1HCyHAgMiUcpidfeC0rutcfD6yElcv3GSUjYFRApqyRkYWBXB3rcwbL_sboxqj8p/exec";
+  const SERVER_URL = "https://api.instantverifyai.com/signup";
   async function submitForm() {
     const fields = ['practice','fname','lname','email','phone','pms','ops'];
     const data = { notes: document.getElementById('notes')?.value?.trim() || "",
@@ -955,7 +955,8 @@
     const original = btn.textContent;
     btn.textContent = 'Submitting...'; btn.disabled = true;
     try {
-      await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data), redirect:'follow' });
+      const resp = await fetch(SERVER_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data) });
+      if (!resp.ok) throw new Error('signup ' + resp.status);
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('success').classList.add('show');
       // Analytics: conversion only, no personal details (names/emails/phone never sent)
@@ -968,7 +969,7 @@
     }
   }
 </script>
-<script src="https://iv-site-agent.darren-4ad.workers.dev/widget.js" defer></script>
+<script src="https://api.instantverifyai.com/widget.js" defer></script>
 <script>
   // Logo always returns to the top of the homepage; on the homepage itself, scroll up instead of reloading.
   document.querySelectorAll('a.nav-logo, a.footer-logo').forEach(a => a.addEventListener('click', e => {
