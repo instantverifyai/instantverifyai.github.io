@@ -138,6 +138,9 @@ def sample_report():
     # Sections added after the frame base (kept in _tools so rebuilds don't drop them)
     more = open(os.path.join(os.path.dirname(__file__), "sample_report_more.html")).read()
     body = body.replace("  <!-- HONESTY -->", more + "  <!-- HONESTY -->", 1)
+    top = open(os.path.join(os.path.dirname(__file__), "sample_report_top.html")).read()
+    body = body.replace("  <!-- INTRO + DAILY SUMMARY -->", top + "  <!-- INTRO + DAILY SUMMARY -->", 1)
+    body = re.sub(r"(<!-- INTRO \+ DAILY SUMMARY -->.*?)<h1>(.*?)</h1>", r"\1<h2>\2</h2>", body, count=1, flags=re.S)
     open(path, "w").write(frame(old, '<div class="sr">' + body.strip() + "</div>", css))
     print("framed", path)
 
