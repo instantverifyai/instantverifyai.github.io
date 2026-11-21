@@ -503,6 +503,18 @@
 .faq-item summary::after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:400;color:var(--blue);}
 .faq-item[open] summary::after{content:"\2212";}
 .faq-item p{padding:0 24px 22px;color:var(--text);line-height:1.7;text-align:left;}
+/* ROUND 11 (Darren): report highlights on the homepage */
+.hl3{margin:34px auto 38px;max-width:1080px;}
+.hl3 .eyebrow{text-align:center;}
+.hl3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px;}
+.hl3-card{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:18px;text-align:left;display:flex;flex-direction:column;}
+.hl3-card h3{font-family:"Syne",sans-serif;font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:10px;}
+.hl3-shot{border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:12px;align-self:flex-start;max-width:100%;}
+.hl3-shot img{max-width:100%;height:auto;display:block;}
+.hl3-card p{font-size:.98rem;color:var(--gray);margin:0;text-align:left !important;}
+.hl3-ex{margin-top:8px;font-size:.82rem;color:#8a94a3;font-style:italic;}
+.hl3-more{text-align:center;margin-top:20px;font-weight:600;}
+@media(max-width:900px){.hl3-grid{grid-template-columns:1fr;}}
 .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -685,6 +697,27 @@
   <div class="wrap">
     <h2 class="sec">Not a mockup. An actual report.</h2>
     <p class="lead lead-long">This is a real InstantVerify report, with the patient's identifying details redacted. Every number is read straight from the carrier portal — plan, network status, remaining benefits, code-level rates, and frequency limits, all on one clean page your team reads in seconds.</p>
+    <div class="hl3">
+      <div class="eyebrow">What most verifications miss</div>
+      <div class="hl3-grid">
+      <div class="hl3-card">
+        <h3>Which teeth aren't eligible yet</h3>
+        <div class="hl3-shot"><img src="/hl/tooth.jpg" width="340" height="150" alt="Which teeth aren't eligible yet: excerpt from an InstantVerify report" loading="lazy"></div>
+        <p>Tooth by tooth, when a filling or crown is covered again.</p>
+      </div>
+      <div class="hl3-card">
+        <h3>Whether composites get downgraded</h3>
+        <div class="hl3-shot"><img src="/hl/downgrade.jpg" width="355" height="50" alt="Whether composites get downgraded: excerpt from an InstantVerify report" loading="lazy"></div>
+        <p>Paid at the plan rate, or downgraded to amalgam: a top source of surprise balances.</p>
+      </div>
+      <div class="hl3-card">
+        <h3>A wrong member ID, flagged in red</h3>
+        <div class="hl3-shot"><img src="/hl/memberid.jpg" width="330" height="40" alt="A wrong member ID, flagged in red: excerpt from an InstantVerify report" loading="lazy"></div>
+        <p>Found anyway, with the right ID to update before the claim bounces.</p><span class="hl3-ex">Example, details changed for privacy</span>
+      </div>
+      </div>
+      <p class="hl3-more"><a href="/sample-report/#highlights" data-cta="home_highlights_all">See all 8 details offices rarely get &rarr;</a></p>
+    </div>
     <div class="report-shot"><a href="/report-sample.png" target="_blank" rel="noopener" aria-label="Open the full-size sample report"><picture><source srcset="/report-sample.webp" type="image/webp"><img src="/report-sample.png" alt="A sample InstantVerify verification report showing plan and policy details, remaining benefits, coverage by category with code-level rates, today's procedures, and commonly quoted codes — patient identifiers redacted." width="1224" height="1584" loading="lazy" decoding="async"></picture></a></div>
     <p class="report-cap">Sample report — patient identifiers redacted.</p>
     <div class="report-cta">
