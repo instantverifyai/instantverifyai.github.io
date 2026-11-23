@@ -445,7 +445,11 @@
   a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
   .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
-  .cta-short{display:none;}
+  /* ROUND 12 (Darren/Brian 11-23): Book a Demo + Stripe flow */
+.nav-demo{border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+.nav-demo:hover{border-color:var(--teal);color:var(--teal);}
+@media(max-width:700px){.nav-demo{display:none;}}
+.cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
   /* WHY US page */
@@ -504,6 +508,7 @@
     <a href="/#about" class="nav-link">About us</a>
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="tel:+13852440314" class="nav-phone" data-cta="nav_call" aria-label="Call Dr. J at (385) 244-0314"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call Dr. J <b>(385) 244-0314</b></span></a>
+    <a href="https://calendly.com/drbrianj/new-meeting" class="nav-demo" data-cta="nav_book_demo" target="_blank" rel="noopener">Book a Demo</a>
     <a href="/#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
@@ -519,19 +524,19 @@
 
 <main class="doc">
   <div class="wrap">
-<p>These Terms of Service ("Terms") govern your use of InstantVerify AI ("the Software"), provided by InstantVerify AI ("we," "us"). By installing or using the Software, you agree to these Terms.</p>
+<p>These Terms of Service ("Terms") govern your use of InstantVerify AI ("the Software"), provided by Instant Verify AI, Inc., a Delaware corporation ("InstantVerify," "we," "us"). Our <a href="/eula/">End User License Agreement</a> ("EULA") and <a href="/baa/">Business Associate Agreement</a> ("BAA"), which we send you to sign when you subscribe, are part of these Terms. By installing or using the Software, you agree to these Terms, the EULA and the BAA. If they conflict, the BAA controls as to protected health information, the EULA controls as to the license, installation, use, protection and verification of the Software, and these Terms control everything else.</p>
   <h2>1. What the Software Does</h2>
   <p>InstantVerify AI is a <strong>desktop application installed on your practice's own computer</strong>. It reads your practice management system, signs in to dental insurance carrier portals using credentials you provide, retrieves benefit information for your scheduled patients, and produces a daily report for your front desk.</p>
   <p>The Software performs the same steps a member of your staff would perform manually. It is <strong>robotic process automation</strong> — it operates existing applications and websites according to fixed rules. It does not make coverage determinations, does not generate recommendations or scores, and does not influence any clinical or financial decision. It retrieves and organizes information the carrier has already determined.</p>
   <h2>2. Where Your Data Lives</h2>
-  <p><strong>Patient data never leaves your workstation.</strong> The Software reads your practice management system locally, writes its reports locally, and does not transmit patient information to us or to any third party.</p>
-  <p>We receive one small machine-readable status file per day from each installation, sent from your machine to a single fixed support address. It records whether the run completed, how long it took, and which carrier portals failed to respond. <strong>It contains no patient information.</strong> Its only purpose is to let us detect and fix problems affecting your practice.</p>
-  <p><strong>Portal credentials</strong> you enter are stored locally on your own workstation. They are never transmitted to us and we never hold them. You control the machine and the credentials at all times.</p>
-  <h2>3. No Generative AI in the Data Path</h2>
-  <p>The Software uses <strong>no large language model and no generative AI</strong> to process your data. Patient information is never sent to any AI service. Your data is never used to train any model, by us or by anyone else.</p>
-  <p>The Software includes on-device optical character recognition (OCR) in some configurations, which reads text from images on your own machine. Nothing leaves the workstation.</p>
-  <h2>4. Email Access</h2>
-  <p>Some carrier portals email a one-time verification code at login. If you connect a Google account, the Software uses it to locate that code and complete the sign-in automatically, and to send the daily status file described in Section 2.</p>
+  <p>The Software is designed so that patient data stays on your practice's computers. It reads your practice management system locally, writes its reports locally, and is designed not to transmit patient information to us or to any third party.</p>
+  <p>Each installation sends us status and diagnostic files from your machine to a fixed support address. They record whether runs completed, how long they took, and which carrier portals or steps failed. They are designed to contain no patient information; where a file refers to an individual result, it uses a random reference code. We use them to detect and fix problems and to operate, support and improve the Software, as the EULA describes.</p>
+  <p>Portal credentials you enter are designed to be stored on your own workstation. You are responsible for keeping them accurate, current and secure.</p>
+<h2>3. No Generative AI in the Data Path</h2>
+  <p>The Software uses no large language model or generative AI to process your data, and the Software does not send patient information to any AI service. We do not use patient information to train any model.</p>
+  <p>When we install, test and support the Software, our team may use software tools, including AI tools operated under zero-data-retention terms and a Business Associate Agreement, and only as our BAA with your practice permits.</p>
+<h2>4. Email Access</h2>
+  <p>Some carrier portals email a one-time verification code at login. If you connect a Google account, you authorize the Software to read verification-code emails from carrier senders, to complete the sign-in with that code, to move the code emails it has used to your mailbox's trash, and to send the status and diagnostic files described in Section 2. We are not liable for any email that is read, moved, missed or delayed, or for any consequence of a code not arriving.</p>
   <p>Email content is read only on your own machine. It is never transmitted to or stored on any InstantVerify server, never sold or shared, and never used to train any model. You may revoke this access at any time through your Google Account settings; the Software will then require codes to be entered manually.</p>
   <h2>5. ⚠ Estimates, Not Guarantees of Payment</h2>
   <p><strong>This is the most important clause in these Terms. Please read it.</strong></p>
@@ -550,19 +555,19 @@
   <li>Tell us promptly when a result appears incorrect, so it can be investigated and corrected</li>
   </ul>
   <h2>7. HIPAA</h2>
-  <p>The Software runs on your workstation and processes protected health information there. Because patient data is not transmitted to us, our access to PHI is limited. Where a Business Associate Agreement is required, we will enter into one at your request.</p>
+  <p>The Software runs on your workstation and processes protected health information there. Our BAA applies to every subscription and governs any protected health information we access, including during installation, support and remote access.</p>
   <p>You are responsible for HIPAA compliance on the machine the Software runs on, as you are for every other machine in your practice.</p>
-  <h2>8. Service, Availability and Changes</h2>
+<h2>8. Service, Availability and Changes</h2>
   <p>The Software depends on third-party systems we do not control — carrier portals, practice management systems, email providers, and the public internet. Carriers change their portals without notice, take them down for maintenance, and occasionally block automated access. <strong>We do not guarantee uninterrupted operation or that any particular carrier will remain available.</strong></p>
-  <p>We may update the Software from time to time to accommodate portal changes, fix defects, or add capability. We will not push updates that materially reduce functionality you are paying for without telling you.</p>
+  <p>We may update the Software at any time, including to accommodate portal changes, fix defects or add capability, and we may add, change or remove features, carriers, practice management system integrations and reports. Remote access, license verification and automatic deactivation are described in the EULA.</p>
   <h2>9. Fees, Term and Termination</h2>
-  <p>Fees, billing period, and any trial terms are those quoted to you in writing at the time you subscribe. Fees are payable in advance.</p>
+  <p>Fees and billing period are those quoted to you in writing at the time you subscribe. Fees are payable in advance.</p>
   <p>Either party may terminate on thirty (30) days' written notice. On termination, your license to use the Software ends and it must be uninstalled. Reports already produced remain yours and remain on your machine — we do not hold them and cannot remove them.</p>
-  <p>We may suspend or terminate access for non-payment, for use that violates these Terms, or for use that violates a carrier's terms in a way that puts other users at risk.</p>
+  <p>We may suspend or terminate access immediately for non-payment, for use that violates these Terms or the EULA, or for use that violates a carrier's terms in a way that puts other users at risk. The Software stops operating when access ends, as the EULA describes.</p>
   <h2>10. Intellectual Property</h2>
   <p>The Software, its documentation, and the portal mappings and automation logic underlying it remain our property. You receive a non-exclusive, non-transferable license to use the Software at the practice locations covered by your subscription, for the term of that subscription.</p>
   <p>You may not copy, redistribute, decompile, or reverse-engineer the Software, or use it to build a competing product.</p>
-  <p>Reports the Software produces belong to you.</p>
+  <p>Reports the Software produces belong to you. You grant us a perpetual, royalty-free license to use them to provide, support and improve the Software, and to use reports from which patient identifiers have been removed for any lawful purpose.</p>
   <h2>11. Limitation of Liability</h2>
   <p>To the maximum extent permitted by law, our total liability arising out of or relating to the Software is limited to the fees you paid in the twelve months preceding the claim.</p>
   <p>We are not liable for indirect, incidental, consequential, or punitive damages, including lost revenue, denied or underpaid claims, write-offs, patient disputes, or costs arising from reliance on benefit information that proved inaccurate.</p>
@@ -571,11 +576,10 @@
   <p>The Software is provided "as is." To the extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.</p>
   <h2>13. Changes to These Terms</h2>
   <p>We may update these Terms. Material changes will be communicated to active subscribers before they take effect. Continued use after that constitutes acceptance.</p>
-  <h2>14. Governing Law</h2>
-  <p>These Terms are governed by the laws of the State of Colorado, without regard to conflict-of-law provisions.</p>
-  <h2>15. Contact</h2>
-  <p>Questions about these Terms:</p>
-  <p><strong>support@instantverifyai.com</strong></p>
+  <h2>14. Governing Law and Disputes</h2>
+  <p>These Terms are governed by the laws of the State of Colorado, without regard to conflict-of-law provisions. Disputes are resolved as the EULA provides: binding individual arbitration seated in Colorado Springs, Colorado, with no class, collective or representative actions and no jury trial.</p>
+<h2>15. Contact</h2>
+  <p>Instant Verify AI, Inc. · Woodland Park, CO · <a href="mailto:support@instantverifyai.com">support@instantverifyai.com</a></p>
   </div>
 </main>
 

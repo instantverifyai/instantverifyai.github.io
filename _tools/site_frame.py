@@ -93,6 +93,13 @@ def doc_page(path, eyebrow):
         cm = re.sub(r'\s*<hr class="rule">', "", cm, count=1)
         main = re.sub(r"\s*<hr\s*/?>\s*$", "", cm.rstrip())
         old = cur
+    if '<main class="doc">' in cur:
+        # Already framed: keep the live text (legal rewrites happen on the page itself).
+        hm = re.search(r'<header class="why-hero page-hero">.*?<h1>(.*?)</h1>(?:\s*<p class="lead">(.*?)</p>)?', cur, re.S)
+        title, lede = hm.group(1).strip(), (hm.group(2) or "").strip()
+        cm = cur[cur.index('<main class="doc">'):cur.index("</main>")]
+        main = cm[cm.index('<div class="wrap">') + len('<div class="wrap">'):cm.rindex("</div>")]
+        old = cur
     body = hero(eyebrow, title, lede) + '\n\n<main class="doc">\n  <div class="wrap">\n' + main.strip() + "\n  </div>\n</main>"
     open(path, "w").write(frame(old, body))
     print("framed", path)
@@ -161,7 +168,7 @@ def contact():
     head = ("<head>\n<title>Contact | InstantVerify AI</title>\n"
             '<meta name="description" content="Talk with Dr. J at InstantVerify AI: call (385) 244-0314, book a time on his calendar, or email support.">\n'
             '<link rel="canonical" href="https://instantverifyai.com/contact/">\n</head>')
-    body = hero("Contact", "Talk with Dr. J.", "Questions about your office, your software, or your carriers? Reach out whichever way is easiest.")
+    body = hero("Contact", "Talk with Dr. J", "Questions about your office, your software, or your carriers? Reach out whichever way is easiest.")
     body += """
 
 <main class="doc">

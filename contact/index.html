@@ -431,7 +431,11 @@
   a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
   .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
-  .cta-short{display:none;}
+  /* ROUND 12 (Darren/Brian 11-23): Book a Demo + Stripe flow */
+.nav-demo{border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+.nav-demo:hover{border-color:var(--teal);color:var(--teal);}
+@media(max-width:700px){.nav-demo{display:none;}}
+.cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
   /* WHY US page */
@@ -497,6 +501,7 @@
     <a href="/#about" class="nav-link">About us</a>
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="tel:+13852440314" class="nav-phone" data-cta="nav_call" aria-label="Call Dr. J at (385) 244-0314"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call Dr. J <b>(385) 244-0314</b></span></a>
+    <a href="https://calendly.com/drbrianj/new-meeting" class="nav-demo" data-cta="nav_book_demo" target="_blank" rel="noopener">Book a Demo</a>
     <a href="/#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
@@ -505,7 +510,7 @@
   <div class="hero-grid"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="eyebrow">Contact</div>
-    <h1>Talk with Dr. J.</h1>
+    <h1>Talk with Dr. J</h1>
     <p class="lead">Questions about your office, your software, or your carriers? Reach out whichever way is easiest.</p>
   </div>
 </header>
