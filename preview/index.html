@@ -506,6 +506,13 @@
 .hl3-ex{margin-top:8px;font-size:.82rem;color:#8a94a3;font-style:italic;}
 .hl3-more{text-align:center;margin-top:20px;font-weight:600;}
 @media(max-width:900px){.hl3-grid{grid-template-columns:1fr;}}
+/* ROUND 12 (Darren/Brian 11-23): Book a Demo + Stripe flow */
+.nav-demo{border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+.nav-demo:hover{border-color:var(--teal);color:var(--teal);}
+@media(max-width:700px){.nav-demo{display:none;}}
+.price-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+.btn-demo{border:1px solid rgba(255,255,255,.45);color:#fff !important;background:transparent;}
+.btn-demo:hover{border-color:var(--teal);color:var(--teal) !important;}
 .cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
@@ -522,6 +529,7 @@
     <a href="#about" class="nav-link">About us</a>
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="tel:+13852440314" class="nav-phone" data-cta="nav_call" aria-label="Call Dr. J at (385) 244-0314"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call Dr. J <b>(385) 244-0314</b></span></a>
+    <a href="https://calendly.com/drbrianj/new-meeting" class="nav-demo" data-cta="nav_book_demo" target="_blank" rel="noopener">Book a Demo</a>
     <a href="#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
@@ -814,7 +822,7 @@
       <div class="lock-note">Month-to-month, no contract, cancel anytime. Your charter rate <b>never goes up</b>.</div>
       <div class="lock-note first30"><b>First 30 charter practices:</b> a personal setup call and hands-on help from Darren and Brian until you're up and running.</div>
       <div class="lock-note"><b>Everything included.</b> The complete system, month-to-month. No contract, cancel anytime, and your charter rate is locked in.</div>
-      <a href="#signup" class="btn btn-primary" data-cta="pricing_get_started" style="margin-top:18px;display:inline-block">Get started at $250/mo</a>
+      <div class="price-btns"><a href="#signup" class="btn btn-primary" data-cta="pricing_get_started">Get Started Now</a><a href="https://calendly.com/drbrianj/new-meeting" class="btn btn-demo" data-cta="pricing_book_demo" target="_blank" rel="noopener">Book a Demo</a></div>
     </div>
   </div>
 </section>
@@ -873,14 +881,15 @@
         <div class="fg"><label>Number of operatories</label>
           <select id="ops"><option value="" disabled selected>Select range</option><option>1–3</option><option>4–6</option><option>7–10</option><option>11+</option></select>
         </div>
+        <div class="fg"><label>Who referred you? (optional)</label><input type="text" id="referral" placeholder="A colleague, a study club, a vendor…"></div>
         <div class="fg"><label>Anything else? (optional)</label><textarea id="notes" rows="2" placeholder="Current verification process, biggest pain point, etc."></textarea></div>
         <button class="form-submit" onclick="submitForm()">Reserve my charter spot →</button>
         <div class="form-note">No commitment required. We'll talk through your practice before any setup.</div>
       </div>
       <div class="success-msg" id="success">
         <div class="ico">✅</div>
-        <h3>You're on the list!</h3>
-        <p>We'll reach out within 24 hours to get you set up and lock your charter rate.<br><br>— Darren &amp; Brian, InstantVerify AI</p>
+        <h3>Got it, thank you!</h3>
+        <p>Taking you to secure checkout to lock your charter rate and accept the agreements…<br><br>— Darren &amp; Brian, InstantVerify AI</p>
       </div>
     </div>
   </div>
@@ -963,10 +972,12 @@
 
   /* ---- Lead capture (posts to Google Apps Script) ---- */
   const SERVER_URL = "https://api.instantverifyai.com/signup";
+  const STRIPE_CHECKOUT = "https://buy.stripe.com/test_8x2bJ14VZeTo8f54ex4Ja00"; // TEST MODE on /preview/ — swap for the live payment link at publish
   async function submitForm() {
     alert('Preview only — the signup form is disabled on this page.'); return;
     const fields = ['practice','fname','lname','email','phone','pms','ops'];
     const data = { notes: document.getElementById('notes')?.value?.trim() || "",
+                   referral: document.getElementById('referral')?.value?.trim() || "",
                    dso: document.getElementById('dso_yn').value,
                    dso_name: document.getElementById('dso_name').value.trim(),
                    dso_locations: document.getElementById('dso_locations').value.trim() };
@@ -985,6 +996,8 @@
       if (!resp.ok) throw new Error('signup ' + resp.status);
       document.getElementById('form-wrap').style.display = 'none';
       document.getElementById('success').classList.add('show');
+      // Continue to Stripe checkout (payment + agreements) with their email pre-filled.
+      setTimeout(() => { window.location.href = STRIPE_CHECKOUT + '?prefilled_email=' + encodeURIComponent(data.email); }, 1200);
       // Analytics: conversion only, no personal details (names/emails/phone never sent)
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'charter_signup', practice_software: data.pms, operatories: data.ops });
       document.getElementById('signup').scrollIntoView({ behavior:'smooth' });
