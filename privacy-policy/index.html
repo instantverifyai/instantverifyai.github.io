@@ -445,7 +445,11 @@
   a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
   .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
-  .cta-short{display:none;}
+  /* ROUND 12 (Darren/Brian 11-23): Book a Demo + Stripe flow */
+.nav-demo{border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+.nav-demo:hover{border-color:var(--teal);color:var(--teal);}
+@media(max-width:700px){.nav-demo{display:none;}}
+.cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
   /* WHY US page */
@@ -504,6 +508,7 @@
     <a href="/#about" class="nav-link">About us</a>
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="tel:+13852440314" class="nav-phone" data-cta="nav_call" aria-label="Call Dr. J at (385) 244-0314"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call Dr. J <b>(385) 244-0314</b></span></a>
+    <a href="https://calendly.com/drbrianj/new-meeting" class="nav-demo" data-cta="nav_book_demo" target="_blank" rel="noopener">Book a Demo</a>
     <a href="/#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
@@ -513,28 +518,28 @@
   <div class="wrap" style="position:relative;z-index:2">
     <div class="eyebrow">Legal</div>
     <h1>Privacy Policy</h1>
-    <p class="lead">Effective date: September 30, 2026</p>
+    <p class="lead">Effective date: November 23, 2026. This policy is part of our <a href="/terms-of-service/">Terms of Service</a>.</p>
   </div>
 </header>
 
 <main class="doc">
   <div class="wrap">
-<p>InstantVerify AI ("InstantVerify," "we," "us") provides software that automates dental insurance eligibility verification for dental practices. This policy explains what information our software handles, where that information lives, and the choices you have. It applies to the InstantVerify AI desktop application and to instantverifyai.com.</p>
+<p>Instant Verify AI, Inc., a Delaware corporation ("InstantVerify," "we," "us"), provides software that automates dental insurance eligibility verification for dental practices. This policy explains what information our software handles, where that information lives, and the choices you have. It applies to the InstantVerify AI desktop application and to instantverifyai.com.</p>
   <h2>The short version</h2>
-  <p>InstantVerify AI is built local-first. Our software runs on your practice's own computers. Patient information, insurance portal credentials, and email data are processed on your machines and are not transmitted to or stored on servers operated by InstantVerify AI.</p>
-  <h2>Information the software processes on your computers</h2>
+  <p>InstantVerify AI is built local-first. Our software runs on your practice's own computers and is designed so that patient information, insurance portal credentials and email data are processed on your machines and not transmitted to or stored on servers operated by InstantVerify AI.</p>
+<h2>Information the software processes on your computers</h2>
   <p><strong>Appointment and patient information.</strong> The software reads your practice management system's appointment schedule (patient names, dates of birth, appointment details, insurance carrier information) in order to perform eligibility verification. This information is processed entirely on your practice's computers and is never sent to InstantVerify AI.</p>
-  <p><strong>Insurance portal credentials.</strong> Login credentials for insurance carrier portals are stored on your practice's own computer. They are used solely to log in to carrier portals on your behalf, are never transmitted to InstantVerify AI, and are never held by us. You control the machine and the credentials at all times, and you can remove them at any time by deleting the application's configuration file.</p>
+  <p><strong>Insurance portal credentials.</strong> Login credentials for insurance carrier portals are designed to be stored on your practice's own computer and used solely to log in to carrier portals on your behalf. You can remove them at any time by deleting the application's configuration file.</p>
   <p><strong>Verification results.</strong> Eligibility and benefits information retrieved from carrier portals is delivered to your practice and remains on your systems.</p>
   <h2>How we use Google user data (Gmail access)</h2>
   <p>Some insurance carrier portals require a one-time verification code sent by email at login. If your practice connects a Google account, the InstantVerify AI application uses Google's Gmail API for three narrowly defined purposes:</p>
   <p><strong><code>gmail.readonly</code> — reading verification codes.</strong> To locate messages sent by your insurance carriers and extract the one-time verification code, so the software can complete the portal login.</p>
-  <p><strong><code>gmail.modify</code> — removing codes after use.</strong> To delete the verification-code emails the software has already read and used, so login codes do not accumulate in your mailbox. The software modifies only those messages. It does not read, label, alter, or delete any other message in your mailbox.</p>
-  <p><strong><code>gmail.send</code> — the daily status file.</strong> Once per day, at the end of a scheduled run, the software sends one small machine-readable status file from your computer to a single fixed support address at InstantVerify AI. <strong>It contains no patient information and no email content.</strong> It records whether the run completed, how long it took, and which carrier portals failed to respond, so that we can detect and fix problems affecting your practice — often before your staff notice them. The recipient address is fixed in the application and cannot be changed. The software sends no other mail, sends nothing on your behalf to any third party, and never sends bulk or promotional mail.</p>
+  <p><strong><code>gmail.modify</code> — removing codes after use.</strong> To move the verification-code emails the software has already read and used to your mailbox's trash, so login codes do not accumulate in your inbox (Gmail empties the trash automatically after 30 days). The software modifies only those messages. It does not read, label, alter, or delete any other message in your mailbox.</p>
+  <p><strong><code>gmail.send</code> — status and diagnostic files.</strong> At the end of scheduled runs, the software sends machine-readable status and diagnostic files from your computer to a single fixed support address at InstantVerify AI. <strong>They are designed to contain no patient information and no email content.</strong> They record whether runs completed, how long they took, and which carrier portals or steps failed, so that we can detect and fix problems and maintain the software. The recipient address is fixed in the application and cannot be changed. The software sends nothing on your behalf to any third party and never sends bulk or promotional mail.</p>
   <p>Specifically:</p>
   <ul>
   <li><strong>What we access:</strong> email messages matching your insurance carriers' sender addresses, retrieved on your practice's computer at the moment a login code is needed.</li>
-  <li><strong>What we do with it:</strong> extract the one-time code, use it to complete the carrier portal login, and then delete that message. Nothing else.</li>
+  <li><strong>What we do with it:</strong> extract the one-time code, use it to complete the carrier portal login, and then move that message to the trash. Nothing else.</li>
   <li><strong>Where processing happens:</strong> entirely on your practice's computer. Gmail message content is not transmitted to, stored on, or accessible from any server operated by InstantVerify AI.</li>
   <li><strong>What we store:</strong> the application does not retain email content. Google sign-in tokens are stored only on your practice's own computer and are never transmitted to us.</li>
   <li><strong>What we never do with Gmail data:</strong> we do not sell it, use it for advertising, use it to train machine-learning or AI models, or allow humans to read it (except with your explicit permission for support, where required for security purposes, or to comply with applicable law).</li>
@@ -543,7 +548,7 @@
   <p><strong>Limited Use disclosure:</strong> InstantVerify AI's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
   <h2>Information we collect on our own systems</h2>
   <p>We keep customer account and business records: your practice's name, contact information, subscription and billing status, license identifiers, and support correspondence. We use this information to provide and bill for the service, to notify you about your subscription, and to provide support. We do not sell personal information.</p>
-  <p>We also receive the daily status file described above, which contains operational information about your installation and no patient information.</p>
+  <p>We also receive the status and diagnostic files described above. We use them, and de-identified statistics derived from them, to operate, support and improve the software, during and after your subscription.</p>
   <h2>Our website</h2>
   <p>This section covers instantverifyai.com only. It does not describe the InstantVerify AI software, which runs on your practice's computers as described above.</p>
   <ul>
@@ -554,21 +559,21 @@
     <li><strong>Signup form.</strong> Information you submit through the signup form (name, practice, contact details, and practice details) is used to contact you about InstantVerify AI.</li>
   </ul>
   <h2>Protected health information</h2>
-  <p>InstantVerify AI's software is designed so that protected health information (PHI) processed during verification remains on your practice's systems. Where required, InstantVerify AI will enter into a Business Associate Agreement (BAA) with covered entities. Contact us to request one.</p>
-  <h2>No generative AI processing of patient data</h2>
-  <p>InstantVerify AI does not use generative artificial intelligence, large language models, or AI chatbot services (such as ChatGPT) in the operation of its software. Patient information is never transmitted to any third-party AI service and is never used to train, tune, or evaluate any machine-learning model. No machine-learning model or AI reads, interprets, or makes decisions about patient information; that work is done with fixed, deterministic rules on the practice's own computer. The software does include a self-contained learning component that adapts to changes in carrier portal structure — it processes portal layouts, never patient data, and is not a third-party AI service. For a plain-language explanation, see <a href="https://instantverifyai.com/patient-data/">How We Handle Patient Data</a>.</p>
+  <p>InstantVerify AI's software is designed so that protected health information (PHI) processed during verification remains on your practice's systems. Our Business Associate Agreement applies to every subscription and governs any PHI we access, including during installation, support and remote access.</p>
+<h2>No generative AI processing of patient data</h2>
+  <p>The InstantVerify AI software does not use generative artificial intelligence, large language models or AI chatbot services (such as ChatGPT) to process patient information, does not send patient information to any AI service, and does not use it to train, tune or evaluate any machine-learning model. When we install, test and support the software, our team may use software tools, including AI tools operated under zero-data-retention terms and a Business Associate Agreement, and only as our BAA with your practice permits. No machine-learning model or AI reads, interprets, or makes decisions about patient information; that work is done with fixed, deterministic rules on the practice's own computer. The software does include a self-contained learning component that adapts to changes in carrier portal structure — it processes portal layouts, never patient data, and is not a third-party AI service. For a plain-language explanation, see <a href="https://instantverifyai.com/patient-data/">How We Handle Patient Data</a>.</p>
   <h2>Verification results are estimates</h2>
   <p>Benefit information the software reports is what the carrier published at the time it was retrieved. It is an estimate of coverage, not a guarantee of payment — carriers apply provisions at claim adjudication that are not visible on an eligibility surface. Your practice remains responsible for the financial information it presents to patients. See our <a href="https://instantverifyai.com/terms-of-service/">Terms of Service</a> for detail.</p>
   <h2>Data sharing</h2>
-  <p>We do not sell your information. We do not share Gmail message content, patient information, or portal credentials with third parties — by design, that information never reaches us. Business records described above may be shared with service providers who support our operations (for example, payment processing), under confidentiality obligations, or where required by law.</p>
+  <p>We do not sell your information. We do not share Gmail message content or portal credentials with third parties, and the software is designed so that patient information does not reach us. Any PHI we access in providing support is handled under our BAA, which permits service providers bound by their own Business Associate Agreements. Business records described above may be shared with service providers who support our operations (for example, payment processing), under confidentiality obligations, or where required by law.</p>
   <h2>Data retention and deletion</h2>
   <p>Information processed by the desktop application lives on your systems and under your control. Removing the application's configuration folder removes its stored tokens and credentials from your computer; revoking access at <a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a> additionally invalidates the Google token. Business records on our side are retained while your account is active and as required for legal and accounting purposes. To request deletion of your business records, contact us at the address below.</p>
   <h2>Security</h2>
   <p>The application communicates with insurance portals and Google over encrypted (HTTPS/TLS) connections. Credentials and sign-in tokens are stored locally on your practice's own computer and are never transmitted to us. Because the software runs on your equipment, the security of that machine — physical access, operating system updates, account passwords, and endpoint protection — is under your practice's control, as it is for your practice management system itself.</p>
   <h2>Changes to this policy</h2>
-  <p>If we make material changes, we will update this page and revise the effective date above.</p>
-  <h2>Contact</h2>
-  <p>InstantVerify AI
+  <p>We may update this policy at any time by posting the new version here with a new effective date. Continued use of the software after that date is acceptance.</p>
+<h2>Contact</h2>
+  <p>Instant Verify AI, Inc. · Woodland Park, CO<br>
   Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#110;&#115;&#116;&#97;&#110;&#116;&#118;&#101;&#114;&#105;&#102;&#121;&#97;&#105;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#110;&#115;&#116;&#97;&#110;&#116;&#118;&#101;&#114;&#105;&#102;&#121;&#97;&#105;&#46;&#99;&#111;&#109;</a>
   Web: <a href="https://instantverifyai.com">https://instantverifyai.com</a></p>
   </div>
