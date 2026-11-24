@@ -1008,6 +1008,51 @@
     }
   }
 </script>
+  <!-- REPORT ZOOM (Darren 11-24): click any report or excerpt to read it full size on the same page -->
+  <style>
+.zoomable{cursor:zoom-in;}
+.zbox{position:fixed;inset:0;z-index:2147483600;background:rgba(9,20,35,.94);display:none;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+.zbox.open{display:block;}
+.zbox img{display:block;margin:70px auto 48px;max-width:none;height:auto;background:#fff;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.4);cursor:zoom-out;}
+.zbox .zbar{position:fixed;top:0;left:0;right:0;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(9,20,35,.96);color:rgba(255,255,255,.85);font-family:"DM Sans",system-ui,sans-serif;font-size:1rem;padding:0 64px;text-align:center;z-index:1;}
+.zbox .zx{position:fixed;top:8px;right:12px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;z-index:2;}
+.zbox .zx:hover,.zbox .zx:focus-visible{border-color:#00b894;color:#00b894;outline:none;}
+  </style>
+  <div class="zbox" id="zbox" role="dialog" aria-modal="true" aria-label="Report, full size" hidden>
+    <div class="zbar"><span class="zhint">Scroll to read. Press Esc or &times; to close.</span></div>
+    <button type="button" class="zx" aria-label="Close">&times;</button>
+    <img alt="">
+  </div>
+  <script>
+(function(){
+  var box=document.getElementById("zbox"); if(!box) return;
+  var big=box.querySelector("img"), x=box.querySelector(".zx"), last=null;
+  if(window.matchMedia&&matchMedia("(hover:none)").matches) box.querySelector(".zhint").textContent="Scroll or pinch to read. Tap × to close.";
+  function open(src,alt,nat,from){
+    last=from; big.removeAttribute("style"); big.alt=alt||""; big.src=src;
+    function size(){var n=big.naturalWidth||nat||1200, vw=window.innerWidth, w=Math.min(n,1400);
+      if(w>vw-24) w=Math.max(vw-24,Math.min(n,900)); big.style.width=w+"px";}
+    big.complete?size():big.onload=size; size();
+    box.hidden=false; box.classList.add("open"); box.scrollTop=0;
+    document.documentElement.style.overflow="hidden"; x.focus();
+    if(window.gtag) gtag("event","report_zoom",{image:src.split("/").pop()});
+  }
+  function close(){box.classList.remove("open"); box.hidden=true; big.src=""; document.documentElement.style.overflow=""; if(last) last.focus();}
+  x.addEventListener("click",close);
+  big.addEventListener("click",close);
+  box.addEventListener("click",function(e){if(e.target===box) close();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&box.classList.contains("open")) close();});
+  document.querySelectorAll(".report-shot img,.sr .shot img,.sr .fill-shot img,.hl-shot img,.hl3-shot img").forEach(function(img){
+    var a=img.closest("a"), t=a||img;
+    img.classList.add("zoomable");
+    if(!a){img.tabIndex=0; img.setAttribute("role","button");}
+    t.setAttribute("aria-label",(img.alt?img.alt.split(":")[0]+". ":"")+"Open full size");
+    function go(e){e.preventDefault(); open(a?a.href:(img.currentSrc||img.src),img.alt,img.naturalWidth,t);}
+    t.addEventListener("click",go);
+    if(!a) img.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ") go(e);});
+  });
+})();
+  </script>
 <script src="https://api.instantverifyai.com/widget.js" data-bottom="52" defer></script>
 <script>
   // Logo always returns to the top of the homepage; on the homepage itself, scroll up instead of reloading.

@@ -444,7 +444,11 @@
   a[href^="tel:"],a[href*="calendly.com/drbrianj"],a[href^="mailto:"],a[href^="tel:"] b,.ccard .cv{color:#0a8f72 !important;}
   .topnav a[href^="tel:"],.topnav a[href^="tel:"] b,.hero a[href^="tel:"],.why-hero a[href^="tel:"],.why-proof a[href^="tel:"],.why-proof a[href*="calendly.com/drbrianj"],.form-card a[href^="tel:"],.form-card a[href*="calendly.com/drbrianj"],footer a[href^="mailto:"],footer a[href^="tel:"],.pricing a[href^="tel:"],.subscribe-box a[href^="mailto:"]{color:var(--teal) !important;}
   .post-cta a.btn-ghost[href*="calendly.com/drbrianj"]{border-color:#0a8f72 !important;}
-  .cta-short{display:none;}
+  /* ROUND 12 (Darren/Brian 11-23): Book a Demo + Stripe flow */
+.nav-demo{border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+.nav-demo:hover{border-color:var(--teal);color:var(--teal);}
+@media(max-width:700px){.nav-demo{display:none;}}
+.cta-short{display:none;}
   @media(max-width:520px){.cta-long{display:none;}.cta-short{display:inline;}}
   .preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#a9803f;color:#fff;text-align:center;font:600 .85rem "DM Sans",sans-serif;padding:7px 12px;}
   /* WHY US page */
@@ -532,32 +536,19 @@
 .sr .cta h2{color:#fff;}
 .sr .cta p{color:rgba(255,255,255,.65);margin:0 auto 20px;}
 .sr .btn{display:inline-block;background:var(--teal);color:var(--navy);font-weight:600;padding:14px 30px;border-radius:8px;text-decoration:none;}
-
-.sr .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
-.sr .hl-card{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:18px 18px 16px;display:flex;flex-direction:column;}
-.sr .hl-card h3{margin-bottom:10px;}
-.sr .hl-shot{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:#fff;margin-bottom:12px;}
-.sr .hl-shot{align-self:flex-start;max-width:100%;}
-.sr .hl-shot img{max-width:100%;height:auto;display:block;}
-.sr .hl-wide{grid-column:1/-1;}
-@media(max-width:760px){.sr .hl-grid{grid-template-columns:1fr;}}
-.sr .hl-card p{font-size:.98rem;color:var(--gray);margin:0 0 10px;text-align:left;}
-.sr .hl-more{margin-top:auto;font-weight:600;color:var(--blue);text-decoration:none;font-size:.95rem;}
-.sr .hl-ex{margin-top:auto;font-size:.85rem;color:#8a94a3;font-style:italic;}
-.sr .hl-jump{text-align:center;margin-top:24px;font-weight:600;}
-#full-delta,#full-expired,#more-reports{scroll-margin-top:90px;}
 </style>
 
 </head>
 <body>
 <nav class="topnav">
-  <a href="/" class="nav-logo" style="text-decoration:none"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
+  <a href="/preview/" class="nav-logo" style="text-decoration:none"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
   <div class="nav-right">
     <a href="/why-us/" class="nav-link">Why us</a>
     <a href="/#start" class="nav-link">Pricing</a>
     <a href="/#about" class="nav-link">About us</a>
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="tel:+13852440314" class="nav-phone" data-cta="nav_call" aria-label="Call Dr. J at (385) 244-0314"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call Dr. J <b>(385) 244-0314</b></span></a>
+    <a href="https://calendly.com/drbrianj/new-meeting" class="nav-demo" data-cta="nav_book_demo" target="_blank" rel="noopener">Book a Demo</a>
     <a href="/#signup" class="nav-cta" data-cta="nav_charter_rate"><span class="cta-long">Claim the Charter Rate</span><span class="cta-short">Get started</span></a>
   </div>
 </nav>
@@ -565,6 +556,36 @@
 <div class="sr"><div class="wrap">
 
   <!-- HIGHLIGHTS (Darren 11-20) -->
+  <style>
+/* ROUND 13 (Darren 11-24): same type scale as the homepage, centered headers, bigger highlight boxes, reports at homepage size */
+.sr .wrap{max-width:1120px;padding:0 4%;}
+.sr section{padding:64px 0;}
+.sr .eyebrow{font-family:"DM Sans",system-ui,sans-serif !important;font-size:.9rem !important;font-weight:700;letter-spacing:.12em;text-align:center;margin:0 auto 14px;}
+.sr h1,.sr h2{font-family:"DM Sans",system-ui,sans-serif !important;font-weight:800 !important;font-size:clamp(1.85rem,3.5vw,2.75rem) !important;letter-spacing:-.025em !important;line-height:1.12 !important;text-align:center;max-width:900px;margin:0 auto 18px;}
+.sr section > p,.sr .pair .col > p,.sr .cta p{font-size:clamp(1.12rem,1.35vw,1.3rem);font-weight:400;line-height:1.65;color:#3f4a59;max-width:760px;margin-left:auto;margin-right:auto;}
+.sr .cta p{color:rgba(255,255,255,.75);}
+.sr section > h3,.sr .pair .col > h3{font-family:"DM Sans",system-ui,sans-serif;font-weight:700;font-size:1.45rem;letter-spacing:-.01em;line-height:1.25;text-align:center;max-width:760px;margin:44px auto 10px;}
+.sr .pair{gap:20px;}
+.sr .pair .col h3 .tag{font-family:"DM Sans",system-ui,sans-serif;font-size:.72rem;}
+.sr .shot,.sr .fill-shot{max-width:820px;margin:28px auto 8px;border-radius:12px;box-shadow:0 20px 60px rgba(13,31,53,.18);}
+.sr .redact-note{font-size:1.02rem;text-align:center;max-width:760px;margin:14px auto 0;}
+.sr .callout,.sr .honesty{max-width:820px;margin-left:auto;margin-right:auto;}
+.sr .callout p{font-size:1.1rem;}
+.sr .callout .k{font-family:"DM Sans",system-ui,sans-serif;font-size:.86rem;}
+.sr .honesty li{font-size:1.1rem;}
+.sr .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;}
+.sr .hl-card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;}
+.sr .hl-card h3{font-family:"DM Sans",system-ui,sans-serif;font-weight:700;font-size:1.35rem;letter-spacing:-.01em;line-height:1.25;color:var(--navy);margin-bottom:14px;}
+.sr .hl-shot{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:#fff;margin-bottom:16px;}
+.sr .hl-shot img{width:100%;height:auto;display:block;}
+.sr .hl-wide{grid-column:1/-1;}
+@media(max-width:760px){.sr .hl-grid{grid-template-columns:1fr;}.sr .hl-card{padding:20px 18px 18px;}}
+.sr .hl-card p{font-size:1.12rem;line-height:1.6;color:#3f4a59;margin:0 0 12px;max-width:none;text-align:left;}
+.sr .hl-more{margin-top:auto;font-weight:600;color:var(--blue);text-decoration:none;font-size:1.05rem;}
+.sr .hl-ex{margin-top:auto;font-size:.95rem;color:#8a94a3;font-style:italic;}
+.sr .hl-jump{text-align:center;margin-top:30px;font-weight:600;font-size:1.12rem;}
+#full-delta,#full-expired,#more-reports{scroll-margin-top:90px;}
+  </style>
   <section class="hl" id="highlights">
     <div class="eyebrow">What most verifications miss</div>
     <h1>The details that turn into surprise bills, found before the patient sits down.</h1>
@@ -572,49 +593,49 @@
     <div class="hl-grid">
       <div class="hl-card">
         <h3>Which teeth aren't eligible yet</h3>
-        <div class="hl-shot"><img src="/preview/hl/tooth.jpg" width="340" height="150" alt="Which teeth aren't eligible yet: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/tooth.jpg" width="340" height="150" alt="Which teeth aren't eligible yet: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>Tooth by tooth, when a filling or crown is covered again. Your team knows before the exam, not after the claim.</p>
         <a class="hl-more" href="#full-delta">See it in the full report &darr;</a>
       </div>
       <div class="hl-card">
         <h3>When X-rays and cleanings were last done</h3>
-        <div class="hl-shot"><img src="/preview/hl/lastservice.jpg" width="380" height="145" alt="When X-rays and cleanings were last done: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/lastservice.jpg" width="380" height="145" alt="When X-rays and cleanings were last done: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>Last bitewings, full-mouth X-rays, exam and cleaning dates from the carrier's own history.</p>
         <a class="hl-more" href="#full-delta">See it in the full report &darr;</a>
       </div>
       <div class="hl-card hl-wide">
         <h3>How many cleanings are left, and when</h3>
-        <div class="hl-shot"><img src="/preview/hl/countdown.jpg" width="760" height="32" alt="How many cleanings are left, and when: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/countdown.jpg" width="760" height="32" alt="How many cleanings are left, and when: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>Used versus allowed, and the exact date the next one is covered.</p>
         <a class="hl-more" href="#full-delta">See it in the full report &darr;</a>
       </div>
       <div class="hl-card">
         <h3>Whether composites get downgraded</h3>
-        <div class="hl-shot"><img src="/preview/hl/downgrade.jpg" width="355" height="50" alt="Whether composites get downgraded: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/downgrade.jpg" width="355" height="50" alt="Whether composites get downgraded: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>Posterior composites paid at the plan rate, or downgraded to amalgam. One of the most common surprise balances.</p>
         <a class="hl-more" href="#full-delta">See it in the full report &darr;</a>
       </div>
       <div class="hl-card">
         <h3>A wrong member ID or payer ID, flagged in red</h3>
-        <div class="hl-shot"><img src="/preview/hl/memberid.jpg" width="330" height="40" alt="A wrong member ID or payer ID, flagged in red: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/memberid.jpg" width="330" height="40" alt="A wrong member ID or payer ID, flagged in red: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>When the ID in your software is wrong or out of date, InstantVerify finds the patient anyway and tells you the right one, before the claim bounces.</p>
         <span class="hl-ex">Example, patient details changed for privacy</span>
       </div>
       <div class="hl-card hl-wide">
         <h3>Limits shared across codes, in the carrier's words</h3>
-        <div class="hl-shot"><img src="/preview/hl/sharedlimit.jpg" width="760" height="75" alt="Limits shared across codes, in the carrier's words: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/sharedlimit.jpg" width="760" height="75" alt="Limits shared across codes, in the carrier's words: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>When cleanings and perio maintenance share one limit, you see the carrier's exact wording, not a summary.</p>
         <a class="hl-more" href="#full-delta">See it in the full report &darr;</a>
       </div>
       <div class="hl-card hl-wide">
         <h3>Exactly where the deductible applies</h3>
-        <div class="hl-shot"><img src="/preview/hl/deductible.jpg" width="660" height="70" alt="Exactly where the deductible applies: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/deductible.jpg" width="660" height="70" alt="Exactly where the deductible applies: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>Category by category, which services the deductible applies to and which it doesn't.</p>
         <span class="hl-ex">Example, patient details changed for privacy</span>
       </div>
       <div class="hl-card hl-wide">
         <h3>Coverage that has quietly ended</h3>
-        <div class="hl-shot"><img src="/preview/hl/ended.jpg" width="745" height="111" alt="Coverage that has quietly ended: excerpt from an InstantVerify report" loading="lazy"></div>
+        <div class="hl-shot"><img src="/hl/ended.jpg" width="745" height="111" alt="Coverage that has quietly ended: excerpt from an InstantVerify report" loading="lazy"></div>
         <p>A plan that terminated before the appointment is flagged up front, so you confirm new coverage before treatment.</p>
         <a class="hl-more" href="#full-expired">See it in the full report &darr;</a>
       </div>
@@ -696,10 +717,55 @@
     <a href="/#signup" class="btn" data-cta="report_claim_rate">Claim your Charter Practice Rate →</a>
   </div>
 
-</div></div>
+</div>
+  <!-- REPORT ZOOM (Darren 11-24): click any report or excerpt to read it full size on the same page -->
+  <style>
+.zoomable{cursor:zoom-in;}
+.zbox{position:fixed;inset:0;z-index:2147483600;background:rgba(9,20,35,.94);display:none;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+.zbox.open{display:block;}
+.zbox img{display:block;margin:70px auto 48px;max-width:none;height:auto;background:#fff;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.4);cursor:zoom-out;}
+.zbox .zbar{position:fixed;top:0;left:0;right:0;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(9,20,35,.96);color:rgba(255,255,255,.85);font-family:"DM Sans",system-ui,sans-serif;font-size:1rem;padding:0 64px;text-align:center;z-index:1;}
+.zbox .zx{position:fixed;top:8px;right:12px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;z-index:2;}
+.zbox .zx:hover,.zbox .zx:focus-visible{border-color:#00b894;color:#00b894;outline:none;}
+  </style>
+  <div class="zbox" id="zbox" role="dialog" aria-modal="true" aria-label="Report, full size" hidden>
+    <div class="zbar"><span class="zhint">Scroll to read. Press Esc or &times; to close.</span></div>
+    <button type="button" class="zx" aria-label="Close">&times;</button>
+    <img alt="">
+  </div>
+  <script>
+(function(){
+  var box=document.getElementById("zbox"); if(!box) return;
+  var big=box.querySelector("img"), x=box.querySelector(".zx"), last=null;
+  if(window.matchMedia&&matchMedia("(hover:none)").matches) box.querySelector(".zhint").textContent="Scroll or pinch to read. Tap × to close.";
+  function open(src,alt,nat,from){
+    last=from; big.removeAttribute("style"); big.alt=alt||""; big.src=src;
+    function size(){var n=big.naturalWidth||nat||1200, vw=window.innerWidth, w=Math.min(n,1400);
+      if(w>vw-24) w=Math.max(vw-24,Math.min(n,900)); big.style.width=w+"px";}
+    big.complete?size():big.onload=size; size();
+    box.hidden=false; box.classList.add("open"); box.scrollTop=0;
+    document.documentElement.style.overflow="hidden"; x.focus();
+    if(window.gtag) gtag("event","report_zoom",{image:src.split("/").pop()});
+  }
+  function close(){box.classList.remove("open"); box.hidden=true; big.src=""; document.documentElement.style.overflow=""; if(last) last.focus();}
+  x.addEventListener("click",close);
+  big.addEventListener("click",close);
+  box.addEventListener("click",function(e){if(e.target===box) close();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&box.classList.contains("open")) close();});
+  document.querySelectorAll(".report-shot img,.sr .shot img,.sr .fill-shot img,.hl-shot img,.hl3-shot img").forEach(function(img){
+    var a=img.closest("a"), t=a||img;
+    img.classList.add("zoomable");
+    if(!a){img.tabIndex=0; img.setAttribute("role","button");}
+    t.setAttribute("aria-label",(img.alt?img.alt.split(":")[0]+". ":"")+"Open full size");
+    function go(e){e.preventDefault(); open(a?a.href:(img.currentSrc||img.src),img.alt,img.naturalWidth,t);}
+    t.addEventListener("click",go);
+    if(!a) img.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ") go(e);});
+  });
+})();
+  </script></div>
 
 <footer>
-  <a href="/" class="footer-logo" style="text-decoration:none" aria-label="InstantVerify AI home"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
+  <a href="/preview/" class="footer-logo" style="text-decoration:none" aria-label="InstantVerify AI home"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#00b894"/><path d="M18 33.5l9.5 9.5L46.5 23" fill="none" stroke="#0d1f35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="logo-name">Instant<span>Verify</span> AI</span></a>
   <nav class="footer-nav">
     <a href="/privacy-policy/">Privacy Policy</a>
     <a href="/terms-of-service/">Terms of Service</a>
