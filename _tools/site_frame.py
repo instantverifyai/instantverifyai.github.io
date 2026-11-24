@@ -148,6 +148,7 @@ def sample_report():
     top = open(os.path.join(os.path.dirname(__file__), "sample_report_top.html")).read()
     body = body.replace("  <!-- INTRO + DAILY SUMMARY -->", top + "  <!-- INTRO + DAILY SUMMARY -->", 1)
     body = re.sub(r"(<!-- INTRO \+ DAILY SUMMARY -->.*?)<h1>(.*?)</h1>", r"\1<h2>\2</h2>", body, count=1, flags=re.S)
+    body = body.rstrip() + "\n" + open(os.path.join(os.path.dirname(__file__), "zoom.html")).read()
     open(path, "w").write(frame(old, '<div class="sr">' + body.strip() + "</div>", css))
     print("framed", path)
 
