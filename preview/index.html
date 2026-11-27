@@ -195,6 +195,10 @@
   .pgrid{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto auto auto;gap:14px;margin-top:26px;max-width:860px;}
   .pgrid .pcard:first-child{grid-row:1 / span 4;}
   @media(max-width:720px){.pgrid{grid-template-columns:1fr;}.pgrid .pcard:first-child{grid-row:auto;}}
+  /* 11-27: 8 carriers. Delta on the left, the other seven in two columns */
+  .pgrid{grid-template-columns:1.2fr 1fr 1fr;max-width:1040px;}
+  @media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr;}.pgrid .pcard:first-child{grid-row:auto;grid-column:1 / -1;}}
+  @media(max-width:560px){.pgrid{grid-template-columns:1fr;}}
   .pcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:20px 22px;}
   .pcard .pk{font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
   .pcard .pk::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none;}
@@ -684,10 +688,22 @@
           <div class="pk">Guardian</div>
           <ul><li>Guardian Dental provider portal</li></ul>
         </div>
+        <div class="pcard">
+          <div class="pk">UnitedHealthcare</div>
+          <ul><li>UnitedHealthcare Dental provider portal</li></ul>
+        </div>
+        <div class="pcard">
+          <div class="pk">GEHA</div>
+          <ul><li>GEHA dental plans</li></ul>
+        </div>
+        <div class="pcard">
+          <div class="pk">Availity</div>
+          <ul><li>Availity Essentials, the multi-payer provider portal</li></ul>
+        </div>
       </div>
       <div class="psoon"><span>Coming soon:</span><span class="chip">Aetna</span><span class="chip">Principal</span><span class="chip">More state Delta Dental plans</span></div>
       <p class="pask">Don't see your carrier? <a href="#signup" data-cta="portals_tell_us">Tell us which portals your office uses</a> and we'll prioritize them.</p>
-      <p class="ptm">Delta Dental, MetLife, United Concordia, Aetna, Cigna, Guardian, and Principal are trademarks of their respective owners. InstantVerify AI is not affiliated with or endorsed by any insurance carrier.</p>
+      <p class="ptm">Delta Dental, MetLife, United Concordia, Cigna, Guardian, UnitedHealthcare, GEHA, Availity, Aetna, and Principal are trademarks of their respective owners. InstantVerify AI is not affiliated with or endorsed by any insurance carrier.</p>
     </div>
   </div>
 </section>
